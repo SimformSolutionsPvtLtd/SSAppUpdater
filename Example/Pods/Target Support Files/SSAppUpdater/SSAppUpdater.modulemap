@@ -1,0 +1,6 @@
+framework module SSAppUpdater {
+  umbrella header "SSAppUpdater-umbrella.h"
+
+  export *
+  module * { export * }
+}

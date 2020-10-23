@@ -1,0 +1,54 @@
+disabled_rules: # rule identifiers to exclude from running
+- variable_name
+- nesting
+- line_length
+- file_length
+- shorthand_operator
+- empty_count
+- redundant_string_enum_value
+- function_parameter_count
+- cyclomatic_complexity
+- trailing_whitespace
+- function_body_length
+- legacy_constructor
+- unused_closure_parameter
+- implicit_getter
+- todo
+- control_statement
+- type_body_length
+- multiple_closures_with_trailing_closure
+- trailing_newline
+
+
+opt_in_rules: # some rules are only opt-in
+- control_statement
+- empty_count
+- colon
+- comma
+- comment
+
+force_cast: warning # implicitly. Give warning only for force casting
+
+force_try:
+severity: warning # explicitly. Give warning only for force try
+
+type_body_length:
+- 300 # warning
+- 1500 # error
+
+# or they can set both explicitly
+file_length: 500
+warning: 500
+error: 1500
+
+large_tuple: # warn user when using 3 values in tuple, give error if there are 4
+- 3
+- 4
+
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+- Pods
+- WaspCheck/Resources/R.generated.swift
+- Pods/Pods
+
+# implicitly
+function_parameter_count: 8

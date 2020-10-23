@@ -1,0 +1,6 @@
+framework module Pods_SSAppUpdater_Example {
+  umbrella header "Pods-SSAppUpdater_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'SSAppUpdater_Example' do
+  pod 'SSAppUpdater', :path => '../'
+
+  target 'SSAppUpdater_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

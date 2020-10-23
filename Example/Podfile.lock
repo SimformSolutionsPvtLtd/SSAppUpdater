@@ -1,0 +1,16 @@
+PODS:
+  - SSAppUpdater (0.0.1)
+
+DEPENDENCIES:
+  - SSAppUpdater (from `../`)
+
+EXTERNAL SOURCES:
+  SSAppUpdater:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  SSAppUpdater: d86235aaf2ca55c9c353b8343cd3c5c1ec080428
+
+PODFILE CHECKSUM: 2590d10e14db9dda48bb3f795fd6ef6d464a0423
+
+COCOAPODS: 1.9.3
