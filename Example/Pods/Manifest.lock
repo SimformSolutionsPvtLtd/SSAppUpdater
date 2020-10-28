@@ -1,5 +1,5 @@
 PODS:
-  - SSAppUpdater (0.0.1)
+  - SSAppUpdater (1.1.0)
 
 DEPENDENCIES:
   - SSAppUpdater (from `../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  SSAppUpdater: d86235aaf2ca55c9c353b8343cd3c5c1ec080428
+  SSAppUpdater: 2b95b0756cfdfd1dab3cd5c02d03b1de093ab6ee
 
 PODFILE CHECKSUM: 2590d10e14db9dda48bb3f795fd6ef6d464a0423
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.0

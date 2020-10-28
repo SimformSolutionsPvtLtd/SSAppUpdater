@@ -48,7 +48,7 @@
 		607FACE51AFB9204008FA782 /* SSAppUpdater_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SSAppUpdater_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		89BE213FEFD653897C7E0C01 /* SSAppUpdater.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SSAppUpdater.podspec; path = ../SSAppUpdater.podspec; sourceTree = "<group>"; };
+		89BE213FEFD653897C7E0C01 /* SSAppUpdater.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SSAppUpdater.podspec; path = ../SSAppUpdater.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		91834E8C3D9B91805879CEFF /* Pods-SSAppUpdater_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSAppUpdater_Tests.release.xcconfig"; path = "Target Support Files/Pods-SSAppUpdater_Tests/Pods-SSAppUpdater_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		B8CAD0B0ED571E1AEE7BE49B /* Pods-SSAppUpdater_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSAppUpdater_Example.release.xcconfig"; path = "Target Support Files/Pods-SSAppUpdater_Example/Pods-SSAppUpdater_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -499,6 +499,7 @@
 				INFOPLIST_FILE = SSAppUpdater/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = com.simform.ssappupdater;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -515,6 +516,7 @@
 				INFOPLIST_FILE = SSAppUpdater/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = com.simform.ssappupdater;
 				PRODUCT_NAME = "$(TARGET_NAME)";
