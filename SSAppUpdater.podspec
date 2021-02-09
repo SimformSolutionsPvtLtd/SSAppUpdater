@@ -8,7 +8,7 @@
 
  Pod::Spec.new do |s|
   s.name         = "SSAppUpdater"
-  s.version      = "1.0.0"
+  s.version      = "1.1.0"
   s.summary      = "SSAppUpdater is an open-source framework which notify the users about newly updated version on app store of the apps user already installed "
 
 
@@ -26,7 +26,7 @@
   s.source       = { :git => "https://github.com/SimformSolutionsPvtLtd/SSAppUpdater.git", :tag => "#{s.version}" }
   #s.source       = { :path => ".", :tag => "#{s.version}" }
 
-  s.source_files  = 'SSAppUpdater/**/*.swift'
+  s.source_files  = 'Sources/SSAppUpdater/**/*.swift'
   #s.pod_target_xcconfig = { 'SWIFT_VERSION' => '5.0' }
   s.documentation_url = 'docs/index.html'
 

@@ -3,7 +3,7 @@
 //  SSAppUpdater
 //
 //  Created by Mansi Vadodaria on 10/26/2020.
-//  Copyright (c) 2020 Mansi Vadodaria. All rights reserved.
+//  Copyright (c) 2020 Simform Solutions Pvt Ltd. All rights reserved.
 //
 
 import UIKit
