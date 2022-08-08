@@ -53,10 +53,12 @@ internal class PerformVersionCheck {
                 return
             }
         }
-        let versionInfo = SSVersionInfo(isAppUpdateAvailable: !version.elementsEqual(appStoreVersion), appReleaseNote: result?.results?.first?.releaseNotes, appVersion: appStoreVersion, appID: result?.results?.first?.trackId, appURL: result?.results?.first?.trackViewUrl)
+        let isNewVersionAvailable = self.isAppStoreVersionAvailable(version: version, appStoreVersion: appStoreVersion)
+        debugPrint("isNewVersionAvailable: \(isNewVersionAvailable)")
+        let versionInfo = SSVersionInfo(isAppUpdateAvailable: isNewVersionAvailable, appReleaseNote: result?.results?.first?.releaseNotes, appVersion: appStoreVersion, appID: result?.results?.first?.trackId, appURL: result?.results?.first?.trackViewUrl)
         completion(versionInfo)
         if SSAppUpdater.shared.showDefaultAlert {
-            if !(version.elementsEqual(appStoreVersion)) {
+            if isNewVersionAvailable {
                 ///version are different
                 if SSAppUpdater.shared.skipVersionAllow, let skipVersion = UserDefaults.skipVersion, skipVersion == appStoreVersion {
                     return
@@ -73,6 +75,10 @@ internal class PerformVersionCheck {
                 }
             }
         }
+    }
+    
+    private func isAppStoreVersionAvailable(version: String, appStoreVersion: String) -> Bool {
+        return version.compare(appStoreVersion, options: .numeric) == .orderedAscending
     }
     
     private func displayForceAlert(versionInfo: SSVersionInfo) {
