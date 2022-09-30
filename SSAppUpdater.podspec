@@ -8,7 +8,7 @@
 
  Pod::Spec.new do |s|
   s.name         = "SSAppUpdater"
-  s.version      = "1.1.0"
+  s.version      = "1.1.1"
   s.summary      = "SSAppUpdater is an open-source framework which notify the users about newly updated version on app store of the apps user already installed "
 
 
