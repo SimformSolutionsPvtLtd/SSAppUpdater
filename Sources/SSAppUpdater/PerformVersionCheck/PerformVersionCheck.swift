@@ -108,23 +108,15 @@ internal class PerformVersionCheck {
         guard let releaseNote = versionInfo.appReleaseNote, let trackID = versionInfo.appID, let appStoreVersion = versionInfo.appVersion else {
             return
         }
-        var window = UIWindow()
-        if #available(iOS 13.0, *) {
-            guard let windowScene = getFirstWindowScene() else { return }
-            window = UIWindow(windowScene: windowScene)
-        } else {
-            window = UIWindow(frame: UIScreen.main.bounds)
-        }
+        let window = UIApplication.shared.windows.first
 
         let ssViewController = SSViewController()
         ssViewController.currentWindow = window
         ssViewController.releaseNote = releaseNote
         ssViewController.trackID = trackID
         ssViewController.appStoreVersion = appStoreVersion
-        let navController = UINavigationController(rootViewController: ssViewController)
-        navController.navigationBar.isHidden = true
-        window.rootViewController = navController
-        window.makeKeyAndVisible()
+        ssViewController.modalPresentationStyle = .overFullScreen
+        window?.rootViewController?.present(ssViewController, animated: false)
     }
 
     @available(iOS 13.0, *)

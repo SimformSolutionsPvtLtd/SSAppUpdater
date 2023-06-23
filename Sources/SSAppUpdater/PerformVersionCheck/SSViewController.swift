@@ -47,13 +47,13 @@ class SSViewController: UIViewController {
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .default) { (action) in
             DispatchQueue.main.async {
-                self.currentWindow = nil
+                self.dismiss(animated: false)
             }
         }
         let skipAction = UIAlertAction(title: "Skip this version", style: .default) { (action) in
             DispatchQueue.main.async {
                 UserDefaults.skipVersion = self.appStoreVersion
-                self.currentWindow = nil
+                self.dismiss(animated: false)
             }
         }
         var actions: [UIAlertAction] = []
