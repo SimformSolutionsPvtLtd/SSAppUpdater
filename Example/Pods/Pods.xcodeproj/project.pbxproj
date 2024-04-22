@@ -190,7 +190,8 @@
 			children = (
 				7DA1BFAC2BCFE7C800273891 /* PrivacyInfo.xcprivacy */,
 			);
-			path = Resource;
+			name = Resource;
+			path = Example/Pods/Resource;
 			sourceTree = "<group>";
 		};
 		8C711B604A5BBA8171A330C73EFE812D /* Pods-SSAppUpdater_Tests */ = {
@@ -212,6 +213,7 @@
 		90F041136A9B80917CE6292B7F496D49 /* SSAppUpdater */ = {
 			isa = PBXGroup;
 			children = (
+				7D3C874F2BCFEB21002A3D7C /* Resource */,
 				12EC6C77D45B1CBF6639CF36A7D1809C /* SSAppUpdater.swift */,
 				594E08D57DE64D749D3C6185FC6B9123 /* Extension */,
 				C537127E5E6F122EADC2EC467934B9E5 /* Helper */,
@@ -293,7 +295,6 @@
 		D9B2EC1078BC2FF91D6130585ECAB161 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				7D3C874F2BCFEB21002A3D7C /* Resource */,
 				90F041136A9B80917CE6292B7F496D49 /* SSAppUpdater */,
 			);
 			name = "Development Pods";

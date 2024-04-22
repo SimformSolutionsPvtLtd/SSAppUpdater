@@ -29,5 +29,5 @@
   s.source_files  = 'Sources/SSAppUpdater/**/*.swift'
   #s.pod_target_xcconfig = { 'SWIFT_VERSION' => '5.0' }
   s.documentation_url = 'docs/index.html'
-  s.resource = "Sources/Resource/PrivacyInfo.xcprivacy"
+  s.resource = "Sources/SSAppUpdater/Resource/PrivacyInfo.xcprivacy"
 end
