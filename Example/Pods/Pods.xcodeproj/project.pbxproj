@@ -47,7 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		024A2406085E1F8B2686CE8455DA6990 /* SSAppUpdater.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SSAppUpdater.framework; path = SSAppUpdater.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		024A2406085E1F8B2686CE8455DA6990 /* SSAppUpdater.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SSAppUpdater.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DEEBA9630374BFB85CFA48F4BD4FDC5 /* Pods-SSAppUpdater_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SSAppUpdater_Tests-dummy.m"; sourceTree = "<group>"; };
 		12EC6C77D45B1CBF6639CF36A7D1809C /* SSAppUpdater.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SSAppUpdater.swift; path = Sources/SSAppUpdater/SSAppUpdater.swift; sourceTree = "<group>"; };
 		1A92F719C13D176756EE5AB921014268 /* SSAppUpdater.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SSAppUpdater.modulemap; sourceTree = "<group>"; };
@@ -56,25 +56,26 @@
 		23803B0FB9E34791670C600627732E11 /* SSAppUpdater-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SSAppUpdater-Info.plist"; sourceTree = "<group>"; };
 		2AF19788896B870A5C8202E78294DBAD /* Pods-SSAppUpdater_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SSAppUpdater_Example-Info.plist"; sourceTree = "<group>"; };
 		2CB2784060C5CF15566EE98C8B93D425 /* SSAppUpdater.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SSAppUpdater.debug.xcconfig; sourceTree = "<group>"; };
-		312C0D964E8A8498992052A55E2375BE /* SSAppUpdater.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = SSAppUpdater.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		312C0D964E8A8498992052A55E2375BE /* SSAppUpdater.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = SSAppUpdater.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		463F6A1BDDC8ECB12AC4594A82A45A9E /* Pods-SSAppUpdater_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SSAppUpdater_Tests-umbrella.h"; sourceTree = "<group>"; };
-		4B0B0C6CB68517E586C3B46A155E015D /* Pods_SSAppUpdater_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SSAppUpdater_Example.framework; path = "Pods-SSAppUpdater_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B0B0C6CB68517E586C3B46A155E015D /* Pods_SSAppUpdater_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SSAppUpdater_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F1B45EE7533786AB4994EE478EC74FA /* Pods-SSAppUpdater_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SSAppUpdater_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		5BACA909C6DCE8FE1FB9682415CFFDA1 /* SSAppUpdater.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SSAppUpdater.release.xcconfig; sourceTree = "<group>"; };
 		6CB45B362FCB2360467F9AEEA4DCF1CF /* Pods-SSAppUpdater_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SSAppUpdater_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		70754C56F955A9097CD02C2D5E0AF7C4 /* PerformVersionCheck.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PerformVersionCheck.swift; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		796C0441D2862982A374558F0F3AA03E /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		796C0441D2862982A374558F0F3AA03E /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		7A5EAD466F68F45912B31134A4D35D18 /* Pods-SSAppUpdater_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SSAppUpdater_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		7B494C25EE8658612D5381AE28F3670B /* Pods-SSAppUpdater_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SSAppUpdater_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		7DA1BFAC2BCFE7C800273891 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		7EA3DF9BCEDCDB1C7F368D6ADA8DD60F /* SSViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SSViewController.swift; sourceTree = "<group>"; };
 		80B2F12B6B6717403E862955DDF8DB91 /* Date.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
-		817B14873217930EA32AC0082B13F6B7 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		817B14873217930EA32AC0082B13F6B7 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		855A284CC093EBE5837A5C27B345444D /* LookUpResponseModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LookUpResponseModel.swift; sourceTree = "<group>"; };
 		8E0752707953A7090AFDFB999E59C37B /* Pods-SSAppUpdater_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SSAppUpdater_Tests.modulemap"; sourceTree = "<group>"; };
 		9ADC496A3E3AC394FB0D321A7464B1DC /* SSAppUpdater-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SSAppUpdater-umbrella.h"; sourceTree = "<group>"; };
 		9D8668FA3440C875D44ABB166D91100F /* SSAppUpdaterEnums.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SSAppUpdaterEnums.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9FB4397E5FB726FE939C72457A86A54C /* Pods-SSAppUpdater_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SSAppUpdater_Example.modulemap"; sourceTree = "<group>"; };
 		A1347A5AC143DC4FDD416923059EF11D /* SSVersionInfo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SSVersionInfo.swift; sourceTree = "<group>"; };
 		AF3C0B0CC34DCB813A54751A899F9836 /* Pods-SSAppUpdater_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SSAppUpdater_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -87,7 +88,7 @@
 		DA04F69EF8E9C009B0BB0A7E172A65D9 /* UIAlertController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
 		E8C9964A30700B6A4C0EC4E2BFF3F874 /* Pods-SSAppUpdater_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SSAppUpdater_Example-frameworks.sh"; sourceTree = "<group>"; };
 		EA637570AFE758BF15AB0C06B7709864 /* Pods-SSAppUpdater_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SSAppUpdater_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		FA2447258A5B2821D01A2420F6B02ADF /* Pods_SSAppUpdater_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SSAppUpdater_Tests.framework; path = "Pods-SSAppUpdater_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA2447258A5B2821D01A2420F6B02ADF /* Pods_SSAppUpdater_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SSAppUpdater_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD45B9F0386FC120C96A1BF0BABC48EB /* Pods-SSAppUpdater_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SSAppUpdater_Example.release.xcconfig"; sourceTree = "<group>"; };
 		FF7D78A009637A8E43C2BC407C0B0244 /* Pods-SSAppUpdater_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SSAppUpdater_Tests-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -182,6 +183,14 @@
 				024A2406085E1F8B2686CE8455DA6990 /* SSAppUpdater.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		7D3C874F2BCFEB21002A3D7C /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				7DA1BFAC2BCFE7C800273891 /* PrivacyInfo.xcprivacy */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		8C711B604A5BBA8171A330C73EFE812D /* Pods-SSAppUpdater_Tests */ = {
@@ -284,6 +293,7 @@
 		D9B2EC1078BC2FF91D6130585ECAB161 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
+				7D3C874F2BCFEB21002A3D7C /* Resource */,
 				90F041136A9B80917CE6292B7F496D49 /* SSAppUpdater */,
 			);
 			name = "Development Pods";
@@ -701,8 +711,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
