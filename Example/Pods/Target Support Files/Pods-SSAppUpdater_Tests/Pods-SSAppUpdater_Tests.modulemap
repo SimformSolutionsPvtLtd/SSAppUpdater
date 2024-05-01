@@ -1,6 +1,0 @@
-framework module Pods_SSAppUpdater_Tests {
-  umbrella header "Pods-SSAppUpdater_Tests-umbrella.h"
-
-  export *
-  module * { export * }
-}
