@@ -6,14 +6,12 @@
 //  Copyright © 2020 Simform Solutions Pvt Ltd. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 public class SSAppUpdater {
-    
-    // MARK: - Variable Declaration
-    /// The SSAppUpdator singleton.
+    // MARK: - Variables
     public static let shared = SSAppUpdater()
-    
+
     private var versionCheck: PerformVersionCheck!
     
     internal var showDefaultAlert: Bool = true
@@ -22,24 +20,38 @@ public class SSAppUpdater {
     
     var isForceUpdate: Bool = false
     
+    var redirectToMacAppStore: Bool = false
+
     var skipVersionAllow: Bool = false
     
-    // MARK: - Initializers
+    // MARK: - Initialisers
     private init() { }
-    
-     // MARK: - Function
-    /// All default parameter are implemented
-    /// - Parameters:
-    ///   - isForceUpdate: Boolean value check that user wants to forceUpdate or OptionalUpdate.
-    ///   - updateAlertFrequency: The frequency in which the user wants to perform update the app
-    ///   - showDefaultAlert: Boolean value check that user wants to show default `UIAlertController` or customUI.
-    ///   - completion: Return Version Information (App Version Info)
-    ///   - skipVersionAllow: Boolean value check that It will Allow for Skip Version in Alert Controller
-    public func performCheck(isForceUpdate: Bool = false, updateAlertFrequency: SSUpdateFrequency = .always, showDefaultAlert: Bool = true, skipVersionAllow: Bool = false, completion: @escaping (SSVersionInfo) -> Void ) {
+}
+
+// MARK: - Functions
+extension SSAppUpdater {
+    /** Shows the update alert.
+        - Parameters:
+         - isForceUpdate: A boolean value indicating whether the user wants to **forceUpdate** or **OptionalUpdate**.
+         - updateAlertFrequency: The frequency at which the user wants to perform the app update.
+         - showDefaultAlert: A boolean value indicating whether the user wants to show the default `UIAlertController` or custom UI.
+         - redirectToAppStoreInMac: A boolean value indicating whether the app should redirect to the App Store on macOS.
+         - completion: A closure to return Version Information (App Version Info).
+         - skipVersionAllow: A boolean value indicating whether it will allow for **Skip Version** in Alert Controller.
+     **/
+    public func performCheck(
+        isForceUpdate: Bool = false,
+        updateAlertFrequency: SSUpdateFrequency = .always,
+        showDefaultAlert: Bool = true,
+        skipVersionAllow: Bool = false,
+        redirectToMacAppStore: Bool = false,
+        completion: @escaping (SSVersionInfo) -> Void
+    ) {
         self.isForceUpdate = isForceUpdate
         self.updateAlertFrequency = updateAlertFrequency
         self.showDefaultAlert = showDefaultAlert
         self.skipVersionAllow = skipVersionAllow
+        self.redirectToMacAppStore = redirectToMacAppStore
         self.versionCheck = PerformVersionCheck(completion: completion)
     }
 }

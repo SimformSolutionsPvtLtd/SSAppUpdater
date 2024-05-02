@@ -44,5 +44,4 @@ internal extension Bundle {
         let bundleName = Bundle.main.object(forInfoDictionaryKey: kCFBundleNameKey as String) as? String
         return bundleDisplayName ?? bundleName ?? ""
     }
-    
 }

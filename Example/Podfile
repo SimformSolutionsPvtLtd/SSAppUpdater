@@ -9,3 +9,7 @@ target 'SSAppUpdater_Example' do
     
   end
 end
+
+target 'SSAppUpdaterMac_Example' do
+  pod 'SSAppUpdater', :path => '../'
+end
