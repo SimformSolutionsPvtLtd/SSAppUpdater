@@ -6,8 +6,6 @@
 //  Copyright © 2020 Simform Solutions Pvt Ltd. All rights reserved.
 //
 
-import UIKit
-
 internal enum SSVersionError: Error {
     case invalidResponse
     case invalidBundleInfo

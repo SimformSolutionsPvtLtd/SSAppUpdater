@@ -23,7 +23,7 @@ SSAppUpdater is an open-source framework that compares the current version of th
   - CocoaPods
 
 # Requirements
-  - iOS 10.0+
+  - iOS 13.0+
   - Xcode 9+
 
 # Installation

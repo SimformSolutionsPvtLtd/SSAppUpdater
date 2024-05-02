@@ -18,9 +18,11 @@
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
 
   s.author             = { "Simform Solutions" => "developer@simform.com" }
-  s.platform     = :ios  
-  
-  s.ios.deployment_target = "10.0"
+  s.platform = :ios
+  s.platform = :osx
+
+  s.ios.deployment_target = "13.0"
+  s.osx.deployment_target = "11.0"
   s.swift_version = '5.0'
 
   s.source       = { :git => "https://github.com/SimformSolutionsPvtLtd/SSAppUpdater.git", :tag => "#{s.version}" }
