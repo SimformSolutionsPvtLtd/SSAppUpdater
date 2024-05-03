@@ -14,7 +14,7 @@ struct ContentView: View {
         VStack {
             Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
                 .onAppear(perform: {
-                    SSAppUpdater.shared.performCheck { (versionInfo) in
+                    SSAppUpdater.shared.performCheck(skipVersionAllow: true) { (versionInfo) in
                         print(versionInfo)
                     }
                 })

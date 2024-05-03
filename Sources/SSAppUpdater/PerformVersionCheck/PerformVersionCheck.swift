@@ -143,7 +143,8 @@ extension PerformVersionCheck {
         SSAlertManager.shared.showAlert(
             releaseNote: releaseNote,
             isForceUpdate: SSAppUpdater.shared.isForceUpdate,
-            appStoreVersion: appStoreVersion,
+            appStoreVersion: appStoreVersion, 
+            skipVersionAllow: SSAppUpdater.shared.skipVersionAllow,
             dismissParentViewController: { },
             primaryButtonAction: { self.launchAppUpdate(trackId: trackID) }
         )
