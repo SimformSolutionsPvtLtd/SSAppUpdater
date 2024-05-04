@@ -57,7 +57,6 @@ extension PerformVersionCheck {
     */
     private func performVersionCheck(appStoreVersion: String, result: LookUpResponseModel?) {
         guard let version = Bundle.version() else { return }
-
         if let minOSVersion = result?.results?.first?.minimumOsVersion {
             #if os(iOS)
             let currentOSVersion = UIDevice.current.systemVersion
@@ -112,6 +111,8 @@ extension PerformVersionCheck {
             } else {
                 UserDefaults.alertPresentationDate = nil
             }
+        } else {
+            completion(versionInfo)
         }
     }
 
@@ -217,7 +218,7 @@ extension PerformVersionCheck {
                 mainWindow.setFrame(screen.visibleFrame, display: true)
             }
             let containerView = VStack(alignment: .leading) {
-                dismissButton(for: mainWindow)
+                updateButton(for: mainWindow)
                 AppStoreView(trackId: Int(trackId))
                     .frame(
                         width: mainWindow.frame.size.width,
@@ -237,7 +238,7 @@ extension PerformVersionCheck {
         - Parameters:
             - mainWindow: The main window instance from which the sheet modal is presented.
     */
-    func dismissButton(for mainWindow: NSWindow) -> some View {
+    func updateButton(for mainWindow: NSWindow) -> some View {
         Button(action: {
             if let attachedSheet = mainWindow.attachedSheet {
                 mainWindow.endSheet(attachedSheet)

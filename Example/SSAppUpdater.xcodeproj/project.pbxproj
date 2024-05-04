@@ -14,6 +14,10 @@
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		7D68EBF92BE4C77000C44596 /* AlertPanelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D68EBF72BE4C77000C44596 /* AlertPanelController.swift */; };
+		7D68EBFC2BE4C7D900C44596 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D68EBFB2BE4C7D900C44596 /* AlertView.swift */; };
+		7D68EBFD2BE4C7D900C44596 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D68EBFB2BE4C7D900C44596 /* AlertView.swift */; };
+		7D68EBFF2BE5060200C44596 /* AlertPanelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D68EBF72BE4C77000C44596 /* AlertPanelController.swift */; };
 		7D6B16BA2BD6523A00B4F283 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6B16B92BD6523A00B4F283 /* ContentView.swift */; };
 		7D70F3842BE36AFB006C95CC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6B16B92BD6523A00B4F283 /* ContentView.swift */; };
 		7D70F3852BE36AFB006C95CC /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D660ED2546F39C007A75EA /* Bundle.swift */; };
@@ -48,6 +52,8 @@
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		642CC13B4C27E74696219498 /* Pods_SSAppUpdaterMac_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SSAppUpdaterMac_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		77F64E3334A3D9052FC37C81 /* Pods-SSAppUpdater_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSAppUpdater_Example.release.xcconfig"; path = "Target Support Files/Pods-SSAppUpdater_Example/Pods-SSAppUpdater_Example.release.xcconfig"; sourceTree = "<group>"; };
+		7D68EBF72BE4C77000C44596 /* AlertPanelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPanelController.swift; sourceTree = "<group>"; };
+		7D68EBFB2BE4C7D900C44596 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		7D6B16B92BD6523A00B4F283 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7D70F38F2BE36AFB006C95CC /* SSAppUpdaterMac_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSAppUpdaterMac_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D70F3902BE36AFB006C95CC /* SSAppUpdater_Example copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "SSAppUpdater_Example copy-Info.plist"; path = "/Users/rishita/Documents/SSAppUpdater/Example/SSAppUpdater_Example copy-Info.plist"; sourceTree = "<absolute>"; };
@@ -133,11 +139,12 @@
 		607FACD21AFB9204008FA782 /* Example for SSAppUpdater */ = {
 			isa = PBXGroup;
 			children = (
+				7D68EBFA2BE4C7BC00C44596 /* Views */,
+				7D68EBF42BE4C6BB00C44596 /* Helper */,
 				03D660EC2546F39C007A75EA /* Extension */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
-				7D6B16B92BD6523A00B4F283 /* ContentView.swift */,
 			);
 			name = "Example for SSAppUpdater";
 			path = SSAppUpdater;
@@ -176,6 +183,23 @@
 				26DB912436E36030A2E4121D /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		7D68EBF42BE4C6BB00C44596 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				7D68EBF72BE4C77000C44596 /* AlertPanelController.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		7D68EBFA2BE4C7BC00C44596 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7D6B16B92BD6523A00B4F283 /* ContentView.swift */,
+				7D68EBFB2BE4C7D900C44596 /* AlertView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		8A528497F2AC2F78474E4BAF /* Pods */ = {
@@ -434,7 +458,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D68EBFC2BE4C7D900C44596 /* AlertView.swift in Sources */,
 				7D6B16BA2BD6523A00B4F283 /* ContentView.swift in Sources */,
+				7D68EBFF2BE5060200C44596 /* AlertPanelController.swift in Sources */,
 				03D660EF2546F39C007A75EA /* Bundle.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
@@ -452,8 +478,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D68EBFD2BE4C7D900C44596 /* AlertView.swift in Sources */,
 				7D70F3842BE36AFB006C95CC /* ContentView.swift in Sources */,
 				7D70F3852BE36AFB006C95CC /* Bundle.swift in Sources */,
+				7D68EBF92BE4C77000C44596 /* AlertPanelController.swift in Sources */,
 				7D70F3862BE36AFB006C95CC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -585,7 +613,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0;
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = com.CloudMagic.Mail;
+				PRODUCT_BUNDLE_IDENTIFIER = com.simform.ssappupdater;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -610,7 +638,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0;
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = com.CloudMagic.Mail;
+				PRODUCT_BUNDLE_IDENTIFIER = com.simform.ssappupdater;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -687,7 +715,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0;
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = com.CloudMagic.Mail;
+				PRODUCT_BUNDLE_IDENTIFIER = com.simform.ssappupdater;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -713,7 +741,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0;
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = com.CloudMagic.Mail;
+				PRODUCT_BUNDLE_IDENTIFIER = com.simform.ssappupdater;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
