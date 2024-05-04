@@ -17,6 +17,7 @@ extension SSAlertManager {
     struct AlertManagerConstants {
         static let update = "Update"
         static let cancel = "Cancel"
+        static let skipThisVersion = "Skip this version"
         static let nsAlertPanel = "_NSAlertPanel"
     }
 }
@@ -44,10 +45,10 @@ extension SSAlertManager {
         releaseNote: String,
         isForceUpdate: Bool,
         appStoreVersion: String,
+        skipVersionAllow: Bool,
         dismissParentViewController: @escaping (() -> Void),
         primaryButtonAction: @escaping (() -> Void)
     ) {
-        
         #if os(iOS)
             let alert = UIAlertController(
                 title: Bundle.getAppName(),
@@ -63,7 +64,16 @@ extension SSAlertManager {
                     }
             )
 
-
+            if skipVersionAllow {
+                alert.addAction(
+                    UIAlertAction(
+                        title: AlertManagerConstants.skipThisVersion,
+                        style: .default) { _ in
+                            UserDefaults.skipVersion = appStoreVersion
+                        }
+                )
+            }
+        
             if !isForceUpdate {
                 alert.addAction(
                     UIAlertAction(
@@ -90,16 +100,21 @@ extension SSAlertManager {
                 alert.alertStyle = .informational
                 alert.addButton(withTitle: AlertManagerConstants.update)
               
+                if skipVersionAllow {
+                    alert.addButton(withTitle: AlertManagerConstants.skipThisVersion)
+                }
+
                 if !isForceUpdate {
                     alert.addButton(withTitle: AlertManagerConstants.cancel)
                 }
 
                 guard let mainWindow = NSApplication.shared.mainWindow else { return }
-
                 alert.beginSheetModal(for: mainWindow) { (response) in
                     if response == .alertFirstButtonReturn {
                         primaryButtonAction()
-                    } else if response == .alertSecondButtonReturn  {
+                    } else if response == .alertSecondButtonReturn && skipVersionAllow {
+                        UserDefaults.skipVersion = appStoreVersion
+                    } else {
                         dismissParentViewController()
                     }
                     alert.window.close()
