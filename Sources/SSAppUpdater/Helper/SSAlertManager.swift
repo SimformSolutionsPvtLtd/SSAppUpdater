@@ -99,7 +99,9 @@ extension SSAlertManager {
                 alert.informativeText = "\n A new version \(appStoreVersion) \n\n \(releaseNote)"
                 alert.alertStyle = .informational
                 alert.addButton(withTitle: AlertManagerConstants.update)
-              
+                if let iconImage = NSImage(systemSymbolName: "exclamationmark.arrow.triangle.2.circlepath", accessibilityDescription: nil) {
+                    alert.icon = iconImage
+                }
                 if skipVersionAllow {
                     alert.addButton(withTitle: AlertManagerConstants.skipThisVersion)
                 }
