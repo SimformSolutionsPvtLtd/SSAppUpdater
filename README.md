@@ -12,18 +12,29 @@ SSAppUpdater is an open-source framework that compares the current version of th
 [![PRs Welcome][PR-image]][PR-url]
 
 # Screenshots
-#### Update Type
+#### Update Type(iOS)
 | Force Update | Optional Update | Skip Version |
 | :--: | :-----: | :--: |
-| ![Alt text](https://github.com/SimformSolutionsPvtLtd/SSAppUpdater/blob/feature/v2.0/ForceUpdate.png?raw=true)  | ![Alt text](https://github.com/SimformSolutionsPvtLtd/SSAppUpdater/blob/feature/v2.0/OptionUpdate.png?raw=true) | ![Alt text](https://github.com/SimformSolutionsPvtLtd/SSAppUpdater/blob/feature/v2.0/skipVersion.png?raw=true) |
+| ![](Assets/ForceUpdateIOS.png) | ![](Assets/OptionalUpdateIOS.png) | ![](Assets/skipVersionIOS.png) |
+    
+#### Update Type(macOS)
+| Force update | Optional update |
+| :--: | :---: |
+| ![](Assets/DefaultForceUpdateAlert.png) | ![](Assets/DefaultOptionalUpdateAlert.png) |
+
+| Skip version | Update with custom alert |
+| :--: | :---: |
+| ![](Assets/DefaultSkipVersion.png) | ![](Assets/UpdateWithCustomAlert.png) |
 # Features!
   - Check for new version of your installed application
   - Provides new version release note
   - Provides AppID and AppStore URL
+  - Provides support of custom alerts for updates.
   - CocoaPods
 
 # Requirements
-  - iOS 10.0+
+  - iOS 13.0+
+  - macOS 11.0+
   - Xcode 9+
 
 # Installation
@@ -64,46 +75,33 @@ Run `carthage` to build and drag the `SSAppUpdater`(Sources/SSAppUpdater) into y
 # How It Works
 - SSAppUpdater compares the currently installed version of your iOS app with the new store version that is currently available in the App Store. When an update is available, SSAppUpdater is able to present the new version number, Appstore URL, App ID, and release notes to the user giving them the choice to update.
 
-- How does SSAppUpdater achieve this? Firstly, it makes use of the **iTunes Search API** to retrieve the information.
-
-
-       isForceUpdate: false           
-       updateAlertFrequency: .always   
-       showDefaultAlert: true         
-
-- Along with this, the `isForceUpdate` Boolean value checks that the user wants to force update or not.
-- Using the updateAlertFrequency, the user can choose alert display time. default value will be `.always`. Alternative values of this property are `daily`,`weekly` and `monthly`.
-- The SSAppUpdater allow developers to create a custom UI if needed. `showDefaultAlert` Boolean value checks that the user wants to show default Alert or Custom UI.
+- How does SSAppUpdater achieve this? Firstly, it makes use of the **iTunes Search API** to retrieve the information. 
+- Parameters usage:   
+    - `isForceUpdate` - Boolean value checks that the user wants to force update or not.
+    - `updateAlertFrequency` - The user can choose alert display time. default value will be `.always`. Alternative values of this property are `daily`,`weekly` and `monthly`.
+    - `showDefaultAlert` - Developers using SSAppUpdater can customize the user interface as required. The Boolean value "showDefaultAlert" determines whether to display the default alert or a custom UI, based on the user's preference.
+    - `skipVersionAllow` - This feature lets users activate the "skipVersion" functionality.
+    - `redirectToMacAppStore` - This setting is specifically for macOS users. It gives them the choice to either be directed to the App Store app or stay within the current application to access the App Store.
 
 # Usage example
 #### Implementation
--   Implementing SSAppUpdater quite easy just add two line code in your `AppDelegate.swift` or anywhere in your app you need. (The block will return the version information)
+-   Implementing SSAppUpdater quite easy just add below provided code in your `AppDelegate.swift` or anywhere in your app you need.
 
-#### AppDelegate.swift Example
+-   The block will provide version information which can then be utilized to generate an custom alert.
+
 ```swift
-import SSAppUpdater
-import UIKit
-
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-    var window: UIWindow?
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        window?.makeKeyAndVisible()
-
-        //defaultExample
-        SSAppUpdater.shared.performCheck { (versionInfo) in
-            // Version Info have all the app update releated information
-            // Display AppUpdate UI based on versionInfo.isAppUpdateAvailable flag
-        }
-        
-        //customExample
-        SSAppUpdater.shared.performCheck(isForceUpdate: false, updateAlertFrequency: .always, showDefaultAlert: true) { (versionInfo) in
-           // Version Info have all the app update releated information
-        }
+    //defaultExample
+    SSAppUpdater.shared.performCheck { (versionInfo) in
+    // Version Info have all the app update related information
+    // Display AppUpdate UI based on versionInfo.isAppUpdateAvailable flag
     }
-}
+
+    //customExample
+    SSAppUpdater.shared.performCheck(isForceUpdate: false, updateAlertFrequency: .always, showDefaultAlert: false) { (versionInfo) in
+    // Version Info have all the app update related information
+    }
 ```
+
 # Inspired 
 -   SSAppUpdater inspired from [Siren](https://github.com/ArtSabintsev/Siren)
 
@@ -127,3 +125,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 [cocoa-url]:https://img.shields.io/cocoapods/v/LFAlertController.svg
 [PR-image]:https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
 [PR-url]:http://makeapullrequest.com
+
+
+## Check out our other Libraries
+
+<h3><a href="https://github.com/SimformSolutionsPvtLtd/Awesome-Mobile-Libraries"><u>🗂 Simform Solutions Libraries→</u></a></h3>

@@ -20,9 +20,9 @@ extension UserDefaults {
     }
    
     /// Sets and Gets a `UserDefault` that stores the alert Presentation Date of the last version check.
-    static var alertPresentationDate: Date? {
+    static var alertPresentationDate: String? {
         get {
-            return standard.object(forKey: UserDefaultKeys.alertPresentationDate.rawValue) as? Date
+            return standard.object(forKey: UserDefaultKeys.alertPresentationDate.rawValue) as? String
         } set {
             standard.set(newValue, forKey: UserDefaultKeys.alertPresentationDate.rawValue)
             standard.synchronize()

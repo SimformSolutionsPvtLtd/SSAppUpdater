@@ -8,8 +8,8 @@
 
  Pod::Spec.new do |s|
   s.name         = "SSAppUpdater"
-  s.version      = "1.3.0"
-  s.summary      = "SSAppUpdater is an open-source framework which notify the users about newly updated version on app store of the apps user already installed "
+  s.version      = "1.4.0"
+  s.summary      = "SSAppUpdater is an open-source framework which notify the users about newly updated version on app store of the apps user already installed"
 
 
   s.homepage     = 'https://github.com/SimformSolutionsPvtLtd/SSAppUpdater.git'
@@ -18,9 +18,11 @@
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
 
   s.author             = { "Simform Solutions" => "developer@simform.com" }
-  s.platform     = :ios  
-  
-  s.ios.deployment_target = "10.0"
+  s.platform = :ios
+  s.platform = :osx
+
+  s.ios.deployment_target = "13.0"
+  s.osx.deployment_target = "11.0"
   s.swift_version = '5.0'
 
   s.source       = { :git => "https://github.com/SimformSolutionsPvtLtd/SSAppUpdater.git", :tag => "#{s.version}" }

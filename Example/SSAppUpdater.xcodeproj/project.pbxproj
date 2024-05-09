@@ -8,14 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		03D660EF2546F39C007A75EA /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D660ED2546F39C007A75EA /* Bundle.swift */; };
-		03D660F02546F39C007A75EA /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D660EE2546F39C007A75EA /* UIAlertController.swift */; };
+		24C7DCC2F786F768CDC057F8 /* Pods_SSAppUpdaterMac_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 642CC13B4C27E74696219498 /* Pods_SSAppUpdaterMac_Example.framework */; };
 		29AFDB7B7D42257DBBD8B195 /* Pods_SSAppUpdater_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 423D8EBD5B2DE37F20840688 /* Pods_SSAppUpdater_Tests.framework */; };
+		5D57E6DEC9D564A442A4067A /* Pods_SSAppUpdater_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FA705AA293D4CD10A9D30BF /* Pods_SSAppUpdater_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
-		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
-		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
-		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		7D68EBF92BE4C77000C44596 /* AlertPanelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D68EBF72BE4C77000C44596 /* AlertPanelController.swift */; };
+		7D68EBFC2BE4C7D900C44596 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D68EBFB2BE4C7D900C44596 /* AlertView.swift */; };
+		7D68EBFD2BE4C7D900C44596 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D68EBFB2BE4C7D900C44596 /* AlertView.swift */; };
+		7D68EBFF2BE5060200C44596 /* AlertPanelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D68EBF72BE4C77000C44596 /* AlertPanelController.swift */; };
+		7D6B16BA2BD6523A00B4F283 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6B16B92BD6523A00B4F283 /* ContentView.swift */; };
+		7D70F3842BE36AFB006C95CC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6B16B92BD6523A00B4F283 /* ContentView.swift */; };
+		7D70F3852BE36AFB006C95CC /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D660ED2546F39C007A75EA /* Bundle.swift */; };
+		7D70F3862BE36AFB006C95CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
+		7D70F38A2BE36AFB006C95CC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		C102DE43144E5053634956F4 /* Pods_SSAppUpdater_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FA705AA293D4CD10A9D30BF /* Pods_SSAppUpdater_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,8 +38,6 @@
 
 /* Begin PBXFileReference section */
 		03D660ED2546F39C007A75EA /* Bundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
-		03D660EE2546F39C007A75EA /* UIAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
-		1D9DCB3ADD9B8D811597F56C /* Pods-SSAppUpdater_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSAppUpdater_Example.debug.xcconfig"; path = "Target Support Files/Pods-SSAppUpdater_Example/Pods-SSAppUpdater_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		1E31F6F2914CAE8C7B4476CC /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		26DB912436E36030A2E4121D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		423D8EBD5B2DE37F20840688 /* Pods_SSAppUpdater_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SSAppUpdater_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,16 +46,23 @@
 		607FACD01AFB9204008FA782 /* SSAppUpdater_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSAppUpdater_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		607FACD71AFB9204008FA782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* SSAppUpdater_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SSAppUpdater_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		642CC13B4C27E74696219498 /* Pods_SSAppUpdaterMac_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SSAppUpdaterMac_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		77F64E3334A3D9052FC37C81 /* Pods-SSAppUpdater_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSAppUpdater_Example.release.xcconfig"; path = "Target Support Files/Pods-SSAppUpdater_Example/Pods-SSAppUpdater_Example.release.xcconfig"; sourceTree = "<group>"; };
+		7D68EBF72BE4C77000C44596 /* AlertPanelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPanelController.swift; sourceTree = "<group>"; };
+		7D68EBFB2BE4C7D900C44596 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		7D6B16B92BD6523A00B4F283 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7D70F38F2BE36AFB006C95CC /* SSAppUpdaterMac_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSAppUpdaterMac_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D70F3902BE36AFB006C95CC /* SSAppUpdater_Example copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "SSAppUpdater_Example copy-Info.plist"; path = "/Users/rishita/Documents/SSAppUpdater/Example/SSAppUpdater_Example copy-Info.plist"; sourceTree = "<absolute>"; };
+		7D87F0D72BD678830038AB23 /* SSAppUpdater_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SSAppUpdater_Example.entitlements; sourceTree = "<group>"; };
 		89BE213FEFD653897C7E0C01 /* SSAppUpdater.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SSAppUpdater.podspec; path = ../SSAppUpdater.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		91834E8C3D9B91805879CEFF /* Pods-SSAppUpdater_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSAppUpdater_Tests.release.xcconfig"; path = "Target Support Files/Pods-SSAppUpdater_Tests/Pods-SSAppUpdater_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		B8CAD0B0ED571E1AEE7BE49B /* Pods-SSAppUpdater_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSAppUpdater_Example.release.xcconfig"; path = "Target Support Files/Pods-SSAppUpdater_Example/Pods-SSAppUpdater_Example.release.xcconfig"; sourceTree = "<group>"; };
+		99E178D1F0D49EBB0BAFBBDE /* Pods-SSAppUpdaterMac_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSAppUpdaterMac_Example.debug.xcconfig"; path = "Target Support Files/Pods-SSAppUpdaterMac_Example/Pods-SSAppUpdaterMac_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		DACEB407ACD2641020FA1760 /* Pods-SSAppUpdaterMac_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSAppUpdaterMac_Example.release.xcconfig"; path = "Target Support Files/Pods-SSAppUpdaterMac_Example/Pods-SSAppUpdaterMac_Example.release.xcconfig"; sourceTree = "<group>"; };
+		EC7E2821D689B07586A59835 /* Pods-SSAppUpdater_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSAppUpdater_Example.debug.xcconfig"; path = "Target Support Files/Pods-SSAppUpdater_Example/Pods-SSAppUpdater_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +71,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C102DE43144E5053634956F4 /* Pods_SSAppUpdater_Example.framework in Frameworks */,
+				5D57E6DEC9D564A442A4067A /* Pods_SSAppUpdater_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +83,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7D70F3872BE36AFB006C95CC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24C7DCC2F786F768CDC057F8 /* Pods_SSAppUpdaterMac_Example.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -77,7 +98,6 @@
 			isa = PBXGroup;
 			children = (
 				03D660ED2546F39C007A75EA /* Bundle.swift */,
-				03D660EE2546F39C007A75EA /* UIAlertController.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -87,6 +107,7 @@
 			children = (
 				5FA705AA293D4CD10A9D30BF /* Pods_SSAppUpdater_Example.framework */,
 				423D8EBD5B2DE37F20840688 /* Pods_SSAppUpdater_Tests.framework */,
+				642CC13B4C27E74696219498 /* Pods_SSAppUpdaterMac_Example.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -94,12 +115,14 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
+				7D87F0D72BD678830038AB23 /* SSAppUpdater_Example.entitlements */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for SSAppUpdater */,
 				607FACE81AFB9204008FA782 /* Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
 				8A528497F2AC2F78474E4BAF /* Pods */,
 				1561165DF77E9042F6D06CAB /* Frameworks */,
+				7D70F3902BE36AFB006C95CC /* SSAppUpdater_Example copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,6 +131,7 @@
 			children = (
 				607FACD01AFB9204008FA782 /* SSAppUpdater_Example.app */,
 				607FACE51AFB9204008FA782 /* SSAppUpdater_Tests.xctest */,
+				7D70F38F2BE36AFB006C95CC /* SSAppUpdaterMac_Example.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -115,12 +139,11 @@
 		607FACD21AFB9204008FA782 /* Example for SSAppUpdater */ = {
 			isa = PBXGroup;
 			children = (
+				7D68EBFA2BE4C7BC00C44596 /* Views */,
+				7D68EBF42BE4C6BB00C44596 /* Helper */,
 				03D660EC2546F39C007A75EA /* Extension */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				607FACD71AFB9204008FA782 /* ViewController.swift */,
-				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
-				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 			);
 			name = "Example for SSAppUpdater";
@@ -162,13 +185,32 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
+		7D68EBF42BE4C6BB00C44596 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				7D68EBF72BE4C77000C44596 /* AlertPanelController.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		7D68EBFA2BE4C7BC00C44596 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7D6B16B92BD6523A00B4F283 /* ContentView.swift */,
+				7D68EBFB2BE4C7D900C44596 /* AlertView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		8A528497F2AC2F78474E4BAF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				1D9DCB3ADD9B8D811597F56C /* Pods-SSAppUpdater_Example.debug.xcconfig */,
-				B8CAD0B0ED571E1AEE7BE49B /* Pods-SSAppUpdater_Example.release.xcconfig */,
 				466C89D1DE5CCD288B7E65F5 /* Pods-SSAppUpdater_Tests.debug.xcconfig */,
 				91834E8C3D9B91805879CEFF /* Pods-SSAppUpdater_Tests.release.xcconfig */,
+				EC7E2821D689B07586A59835 /* Pods-SSAppUpdater_Example.debug.xcconfig */,
+				77F64E3334A3D9052FC37C81 /* Pods-SSAppUpdater_Example.release.xcconfig */,
+				99E178D1F0D49EBB0BAFBBDE /* Pods-SSAppUpdaterMac_Example.debug.xcconfig */,
+				DACEB407ACD2641020FA1760 /* Pods-SSAppUpdaterMac_Example.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -214,6 +256,25 @@
 			productReference = 607FACE51AFB9204008FA782 /* SSAppUpdater_Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		7D70F3802BE36AFB006C95CC /* SSAppUpdaterMac_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7D70F38C2BE36AFB006C95CC /* Build configuration list for PBXNativeTarget "SSAppUpdaterMac_Example" */;
+			buildPhases = (
+				75C73FA46DF61548A829AA4C /* [CP] Check Pods Manifest.lock */,
+				7D70F3822BE36AFB006C95CC /* Sources */,
+				7D70F3872BE36AFB006C95CC /* Frameworks */,
+				7D70F3892BE36AFB006C95CC /* Resources */,
+				234A5DEAA3D8061F4A0602B7 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SSAppUpdaterMac_Example;
+			productName = SSAppUpdater;
+			productReference = 7D70F38F2BE36AFB006C95CC /* SSAppUpdaterMac_Example.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -226,12 +287,17 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = K7XJG666ZW;
 						LastSwiftMigration = 0900;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = K7XJG666ZW;
 						LastSwiftMigration = 0900;
 						TestTargetID = 607FACCF1AFB9204008FA782;
+					};
+					7D70F3802BE36AFB006C95CC = {
+						DevelopmentTeam = K7XJG666ZW;
 					};
 				};
 			};
@@ -251,6 +317,7 @@
 			targets = (
 				607FACCF1AFB9204008FA782 /* SSAppUpdater_Example */,
 				607FACE41AFB9204008FA782 /* SSAppUpdater_Tests */,
+				7D70F3802BE36AFB006C95CC /* SSAppUpdaterMac_Example */,
 			);
 		};
 /* End PBXProject section */
@@ -260,8 +327,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
-				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,6 +335,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7D70F3892BE36AFB006C95CC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D70F38A2BE36AFB006C95CC /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,7 +356,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SSAppUpdater_Example/Pods-SSAppUpdater_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/SSAppUpdater/SSAppUpdater.framework",
+				"${BUILT_PRODUCTS_DIR}/SSAppUpdater-iOS/SSAppUpdater.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -292,6 +365,46 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SSAppUpdater_Example/Pods-SSAppUpdater_Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		234A5DEAA3D8061F4A0602B7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SSAppUpdaterMac_Example/Pods-SSAppUpdaterMac_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SSAppUpdater-macOS/SSAppUpdater.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSAppUpdater.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SSAppUpdaterMac_Example/Pods-SSAppUpdaterMac_Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		75C73FA46DF61548A829AA4C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SSAppUpdaterMac_Example-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		768AA0A8406B10808B634D2B /* [CP] Check Pods Manifest.lock */ = {
@@ -345,8 +458,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03D660F02546F39C007A75EA /* UIAlertController.swift in Sources */,
-				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				7D68EBFC2BE4C7D900C44596 /* AlertView.swift in Sources */,
+				7D6B16BA2BD6523A00B4F283 /* ContentView.swift in Sources */,
+				7D68EBFF2BE5060200C44596 /* AlertPanelController.swift in Sources */,
 				03D660EF2546F39C007A75EA /* Bundle.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
@@ -360,6 +474,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7D70F3822BE36AFB006C95CC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D68EBFD2BE4C7D900C44596 /* AlertView.swift in Sources */,
+				7D70F3842BE36AFB006C95CC /* ContentView.swift in Sources */,
+				7D70F3852BE36AFB006C95CC /* Bundle.swift in Sources */,
+				7D68EBF92BE4C77000C44596 /* AlertPanelController.swift in Sources */,
+				7D70F3862BE36AFB006C95CC /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -369,25 +495,6 @@
 			targetProxy = 607FACE61AFB9204008FA782 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		607FACD91AFB9204008FA782 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				607FACDA1AFB9204008FA782 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		607FACDE1AFB9204008FA782 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				607FACDF1AFB9204008FA782 /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		607FACED1AFB9204008FA782 /* Debug */ = {
@@ -435,7 +542,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -482,7 +590,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -493,35 +602,51 @@
 		};
 		607FACF01AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1D9DCB3ADD9B8D811597F56C /* Pods-SSAppUpdater_Example.debug.xcconfig */;
+			baseConfigurationReference = EC7E2821D689B07586A59835 /* Pods-SSAppUpdater_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SSAppUpdater_Example.entitlements;
+				DEVELOPMENT_TEAM = K7XJG666ZW;
 				INFOPLIST_FILE = SSAppUpdater/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = com.simform.ssappupdater;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		607FACF11AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B8CAD0B0ED571E1AEE7BE49B /* Pods-SSAppUpdater_Example.release.xcconfig */;
+			baseConfigurationReference = 77F64E3334A3D9052FC37C81 /* Pods-SSAppUpdater_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SSAppUpdater_Example.entitlements;
+				DEVELOPMENT_TEAM = K7XJG666ZW;
 				INFOPLIST_FILE = SSAppUpdater/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = com.simform.ssappupdater;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -529,6 +654,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 466C89D1DE5CCD288B7E65F5 /* Pods-SSAppUpdater_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = K7XJG666ZW;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -539,10 +665,15 @@
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SSAppUpdater_Example.app/SSAppUpdater_Example";
 			};
 			name = Debug;
@@ -551,17 +682,75 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 91834E8C3D9B91805879CEFF /* Pods-SSAppUpdater_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = K7XJG666ZW;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SSAppUpdater_Example.app/SSAppUpdater_Example";
+			};
+			name = Release;
+		};
+		7D70F38D2BE36AFB006C95CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 99E178D1F0D49EBB0BAFBBDE /* Pods-SSAppUpdaterMac_Example.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SSAppUpdater_Example.entitlements;
+				DEVELOPMENT_TEAM = K7XJG666ZW;
+				INFOPLIST_FILE = "SSAppUpdater_Example copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0;
+				MODULE_NAME = ExampleApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.simform.ssappupdater;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7D70F38E2BE36AFB006C95CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DACEB407ACD2641020FA1760 /* Pods-SSAppUpdaterMac_Example.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SSAppUpdater_Example.entitlements;
+				DEVELOPMENT_TEAM = K7XJG666ZW;
+				INFOPLIST_FILE = "SSAppUpdater_Example copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0;
+				MODULE_NAME = ExampleApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.simform.ssappupdater;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -591,6 +780,15 @@
 			buildConfigurations = (
 				607FACF31AFB9204008FA782 /* Debug */,
 				607FACF41AFB9204008FA782 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7D70F38C2BE36AFB006C95CC /* Build configuration list for PBXNativeTarget "SSAppUpdaterMac_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7D70F38D2BE36AFB006C95CC /* Debug */,
+				7D70F38E2BE36AFB006C95CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
