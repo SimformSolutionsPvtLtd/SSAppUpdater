@@ -28,6 +28,7 @@ internal class PerformVersionCheck: NSObject, SKStoreProductViewControllerDelega
 extension PerformVersionCheck {
     struct  PerformVersionCheckConstants {
         static let done = "Done"
+        static let baseAppStoreUrl = "itms-apps://itunes.apple.com/app/id"
     }
 }
 
@@ -193,6 +194,12 @@ extension PerformVersionCheck {
      */
     private func launchAppUpdate(trackId: Int) {
         #if os(iOS)
+        if SSAppUpdater.shared.redirectToAppStore {
+            if let appStoreURL = URL(string: "\(PerformVersionCheckConstants.baseAppStoreUrl)\(trackId)") {
+                UIApplication.shared.open(appStoreURL)
+            }
+            return
+        }
         let storeViewController = SKStoreProductViewController()
         storeViewController.loadProduct(
             withParameters: [
@@ -210,7 +217,7 @@ extension PerformVersionCheck {
             }
         }
         #else
-        if SSAppUpdater.shared.redirectToMacAppStore {
+        if SSAppUpdater.shared.redirectToAppStore {
             AppStoreView(trackId: trackId).goToAppStoreApplication()
         } else {
             guard let mainWindow = NSApplication.shared.windows.first else { return }

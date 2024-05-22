@@ -20,7 +20,7 @@ public class SSAppUpdater {
     
     var isForceUpdate: Bool = false
     
-    var redirectToMacAppStore: Bool = false
+    var redirectToAppStore: Bool = false
 
     var skipVersionAllow: Bool = false
     
@@ -44,14 +44,14 @@ extension SSAppUpdater {
         updateAlertFrequency: SSUpdateFrequency = .always,
         showDefaultAlert: Bool = true,
         skipVersionAllow: Bool = false,
-        redirectToMacAppStore: Bool = false,
+        redirectToAppStore: Bool = false,
         completion: @escaping (SSVersionInfo) -> Void
     ) {
         self.isForceUpdate = isForceUpdate
         self.updateAlertFrequency = updateAlertFrequency
         self.showDefaultAlert = showDefaultAlert
         self.skipVersionAllow = skipVersionAllow
-        self.redirectToMacAppStore = redirectToMacAppStore
+        self.redirectToAppStore = redirectToAppStore
         self.versionCheck = PerformVersionCheck(completion: completion)
     }
 }
