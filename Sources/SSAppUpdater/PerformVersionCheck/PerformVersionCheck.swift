@@ -8,16 +8,27 @@
 
 import StoreKit
 import SwiftUI
+import Combine
 
 internal class PerformVersionCheck: NSObject, SKStoreProductViewControllerDelegate {
 
     // MARK: - Variables
     private var completion: (SSVersionInfo) -> Void?
+    var networkManager = SSNetworkManager()
 
     // MARK: - Initialisers
     init(completion: @escaping (SSVersionInfo) -> Void) {
         self.completion = completion
         super.init()
+        #if os(iOS)
+        print(UIApplication.willResignActiveNotification)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(getVersionCheck),
+            name: UIApplication.willResignActiveNotification,
+            object: nil
+        )
+        #endif
         DispatchQueue.main.async {
             self.getVersionCheck()
         }
@@ -29,6 +40,16 @@ extension PerformVersionCheck {
     struct  PerformVersionCheckConstants {
         static let done = "Done"
         static let baseAppStoreUrl = "itms-apps://itunes.apple.com/app/id"
+
+        static let updateSystemImage = "exclamationmark.arrow.triangle.2.circlepath"
+        static let warningSystemImage = "exclamationmark.triangle.fill"
+        static let update = "Update"
+        static let cancel = "Cancel"
+        static let ok = "OK"
+        static let skipThisVersion = "Skip this version"
+
+        static let noInternetAlertTitle = "No internet"
+        static let noInternetAlertSubTitle = "Please check your internet and  try again"
     }
 }
 
@@ -37,7 +58,7 @@ extension PerformVersionCheck {
     /**
         This function querying the iTunes Search API to retrieve information about the latest version of the application available on the App Store.
      */
-    @objc private func getVersionCheck() {
+    @objc func getVersionCheck() {
         SSAPIManager.shared.getLookUpData { (result, error) in
             guard let appStoreVersion = result?.results?.first?.version else {
                 return
@@ -143,12 +164,22 @@ extension PerformVersionCheck {
               let appStoreVersion = versionInfo.appVersion else
         { return }
         SSAlertManager.shared.showAlert(
-            releaseNote: releaseNote,
-            isForceUpdate: SSAppUpdater.shared.isForceUpdate,
-            appStoreVersion: appStoreVersion, 
-            skipVersionAllow: SSAppUpdater.shared.skipVersionAllow,
-            dismissParentViewController: { },
-            primaryButtonAction: { self.launchAppUpdate(trackId: trackID) }
+            alertIcon: PerformVersionCheckConstants.updateSystemImage,
+            title: Bundle.getAppName(),
+            subTitle: "\n A new version \(appStoreVersion) \n\n \(releaseNote)",
+            primaryButtonTitle: PerformVersionCheckConstants.update,
+            primaryButtonAction: {
+                #if os(iOS)
+                    UIApplication.shared.windows.first?.rootViewController?.dismiss(animated: true, completion: nil)
+                #endif
+                self.launchAppUpdate(trackId: trackID)
+            },
+            secondaryButtonTitle: SSAppUpdater.shared.skipVersionAllow ? PerformVersionCheckConstants.skipThisVersion : nil,
+            secondaryButtonAction: {
+                UserDefaults.skipVersion = appStoreVersion
+            },
+            cancelButtonTitle: SSAppUpdater.shared.isForceUpdate ? nil : PerformVersionCheckConstants.cancel,
+            cancelButtonAction: { }
         )
     }
 
@@ -184,6 +215,18 @@ extension PerformVersionCheck {
     }
 }
 
+extension PerformVersionCheck {
+    #if os(iOS)
+    func productViewControllerDidFinish(_ viewController: SKStoreProductViewController) {
+        viewController.dismiss(animated: true)
+        if SSAppUpdater.shared.isForceUpdate {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.getVersionCheck()
+            }
+        }
+    }
+    #endif
+}
 // MARK: - Launch product in appstore
 extension PerformVersionCheck {
     /**
@@ -193,29 +236,38 @@ extension PerformVersionCheck {
             - trackId: The unique identifier of the app on the App Store or Mac App Store.
      */
     private func launchAppUpdate(trackId: Int) {
+        if networkManager.isConnected {
         #if os(iOS)
-        if SSAppUpdater.shared.redirectToAppStore {
-            if let appStoreURL = URL(string: "\(PerformVersionCheckConstants.baseAppStoreUrl)\(trackId)") {
-                UIApplication.shared.open(appStoreURL)
+            if SSAppUpdater.shared.redirectToAppStore {
+                if let appStoreURL = URL(string: "\(PerformVersionCheckConstants.baseAppStoreUrl)\(trackId)") {
+                    UIApplication.shared.open(appStoreURL)
+                }
+                return
             }
-            return
-        }
-        let storeViewController = SKStoreProductViewController()
-        storeViewController.loadProduct(
-            withParameters: [
-                SKStoreProductParameterITunesItemIdentifier: NSNumber(value: trackId)
-            ]
-        ) { (result, error) in
-            if(error != nil) {
-                print("Error occurred while loading the product: \(error.debugDescription)")
-            }
-            else {
-                let viewController = UIApplication.shared.windows.first?.rootViewController
-                viewController?.dismiss(animated: true) {
-                    viewController?.present(storeViewController, animated: true, completion: nil)
+            let storeViewController = SKStoreProductViewController()
+            storeViewController.delegate = self
+            let parametersDictionary = [SKStoreProductParameterITunesItemIdentifier: trackId]
+
+            storeViewController.loadProduct(withParameters: parametersDictionary) { _, error in
+                if error != nil {
+                    if let appStoreURL = URL(string: "\(PerformVersionCheckConstants.baseAppStoreUrl)\(trackId)") {
+                        UIApplication.shared.open(appStoreURL)
+                    }
+                } else {
+                    let scene = UIApplication.shared.connectedScenes.first { $0.activationState == .foregroundActive }
+                    if let windowScene = scene as? UIWindowScene {
+                        if #available(iOS 15.0, *) {
+                            windowScene.keyWindow?.rootViewController?.present(storeViewController, animated: true, completion: nil)
+                        } else {
+                            if let window = windowScene.windows.first {
+                                if let rootViewController = window.rootViewController {
+                                    rootViewController.present(storeViewController, animated: true, completion: nil)
+                                }
+                            }
+                        }
+                    }
                 }
             }
-        }
         #else
         if SSAppUpdater.shared.redirectToAppStore {
             AppStoreView(trackId: trackId).goToAppStoreApplication()
@@ -236,6 +288,17 @@ extension PerformVersionCheck {
             mainWindow.contentViewController?.presentAsSheet(viewController)
         }
         #endif
+        } else {
+            SSAlertManager.shared.showAlert(
+                alertIcon: PerformVersionCheckConstants.warningSystemImage,
+                title: PerformVersionCheckConstants.noInternetAlertTitle,
+                subTitle: PerformVersionCheckConstants.noInternetAlertSubTitle,
+                primaryButtonTitle: PerformVersionCheckConstants.ok,
+                primaryButtonAction: {
+                    self.getVersionCheck()
+                }
+            )
+        }
     }
 
     #if os(macOS)
@@ -247,8 +310,12 @@ extension PerformVersionCheck {
     */
     func updateButton(for mainWindow: NSWindow) -> some View {
         Button(action: {
+
             if let attachedSheet = mainWindow.attachedSheet {
                 mainWindow.endSheet(attachedSheet)
+            }
+            if SSAppUpdater.shared.isForceUpdate {
+                self.getVersionCheck()
             }
         }, label: {
             Text(PerformVersionCheckConstants.done)
