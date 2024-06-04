@@ -20,6 +20,7 @@ internal class PerformVersionCheck: NSObject, SKStoreProductViewControllerDelega
     init(completion: @escaping (SSVersionInfo) -> Void) {
         self.completion = completion
         super.init()
+        getManualVersionCheck()
         #if os(iOS)
         print(UIApplication.willResignActiveNotification)
         NotificationCenter.default.addObserver(
@@ -50,6 +51,10 @@ extension PerformVersionCheck {
 
         static let noInternetAlertTitle = "No internet"
         static let noInternetAlertSubTitle = "Please check your internet and  try again"
+
+        static let versionTag = "version"
+        static let latestBuildURLTag = "latestBuildURL"
+        static let applicationDir = "/Applications/"
     }
 }
 
@@ -326,4 +331,64 @@ extension PerformVersionCheck {
         .buttonStyle(.plain)
     }
     #endif
+}
+
+
+// MARK: - Perform version check manual
+extension PerformVersionCheck {
+    func getManualVersionCheck() {
+        SSAPIManager.shared.checkForManualUpdate(serverURL: "") { content in
+            if let version = self.getXMLTagValue(
+                content: content,
+                tagName: PerformVersionCheckConstants.versionTag
+            ), let latestBuildURL = self.getXMLTagValue(
+                content: content,
+                tagName: PerformVersionCheckConstants.latestBuildURLTag
+            ), self.compareVersions(
+                newBuildVersion: String(version),
+                currentBuildVersion: Bundle.appVersion ?? ""
+            ) == .orderedDescending {
+                print("New version found~~")
+            }
+        }
+    }
+
+    /**
+     Extracts the value of a specified XML tag from a given XML content string.
+
+     - Parameters:
+        - content: The XML content string from which to extract the tag value.
+        - tagName: The name of the XML tag whose value is to be extracted.
+
+     - Returns: An optional string containing the value of the specified XML tag,
+    */
+    private func getXMLTagValue(content: String, tagName: String) -> String? {
+        if let startIndex = content.range(of: "<\(tagName)>")?.upperBound,
+           let endIndex = content.range(of: "</\(tagName)>", range: startIndex ..< content.endIndex)?.lowerBound {
+            return String(content[startIndex ..< endIndex])
+        } else {
+            return nil
+        }
+    }
+
+    /**
+     Compares two version strings to determine their relationship.
+
+     - Parameters:
+        - newBuildVersion: The version string of the new build to be compared.
+        - currentBuildVersion: The version string of the current build to be compared against.
+
+     - Returns: A `ComparisonResult` value indicating the relationship between the two version strings.
+    */
+    func compareVersions(newBuildVersion: String, currentBuildVersion: String) -> ComparisonResult {
+        let newVersionArray = newBuildVersion.extractVersionComponent()
+        let currentVersionArray = currentBuildVersion.extractVersionComponent()
+        if newVersionArray.lexicographicallyPrecedes(currentVersionArray) {
+            return .orderedAscending
+        } else if currentVersionArray.lexicographicallyPrecedes(newVersionArray) {
+            return .orderedDescending
+        } else {
+            return .orderedSame
+        }
+    }
 }

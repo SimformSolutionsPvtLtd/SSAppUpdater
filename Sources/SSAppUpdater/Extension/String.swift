@@ -14,4 +14,9 @@ extension String {
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss ZZZZ"
         return dateFormatter.date(from: self)
     }
+
+    /// Extracts and returns integer components from a version string separated by periods.
+    func extractVersionComponent() -> [Int] {
+        return components(separatedBy: ".").compactMap { Int($0) }
+    }
 }

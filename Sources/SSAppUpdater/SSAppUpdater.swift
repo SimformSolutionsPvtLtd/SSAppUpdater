@@ -23,7 +23,12 @@ public class SSAppUpdater {
     var redirectToAppStore: Bool = false
 
     var skipVersionAllow: Bool = false
-    
+
+
+    // Manual update
+    var url: String = ""
+    var isManualAppUpdater = false
+
     // MARK: - Initialisers
     private init() { }
 }
@@ -65,5 +70,12 @@ extension SSAppUpdater {
     public func performCheckAndDisplayCustomAlert(completion: @escaping (SSVersionInfo) -> Void) {
         self.showDefaultAlert = false
         self.versionCheck = PerformVersionCheck(completion: completion)
+        self.isManualAppUpdater = false
+    }
+
+    public func performVersionCheckFromVersionXML(url: String, ccompletion: @escaping (SSVersionInfo) -> Void) {
+        self.url = url
+        self.versionCheck = PerformVersionCheck(completion: ccompletion)
+        self.isManualAppUpdater = true
     }
 }

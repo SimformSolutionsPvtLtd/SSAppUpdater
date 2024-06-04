@@ -18,6 +18,9 @@ struct ContentView: View {
                     SSAppUpdater.shared.performCheck(isForceUpdate: true) {  versionInfo in
                         print(versionInfo)
                     }
+//                    SSAppUpdater.shared.performCheck { (versionInfo) in
+//                        print(versionInfo)
+//                    }
 
                     /// Uncomment below function to display custom alert
                     /// checkForUpdateDisplayCustomAlert()
