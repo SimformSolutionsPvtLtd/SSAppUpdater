@@ -1,8 +1,7 @@
-<a href="https://www.simform.com/"><img src="https://github.com/SimformSolutionsPvtLtd/SSToastMessage/blob/master/simformBanner.png"></a>
 # SSAppUpdater
 
 
-SSAppUpdater is an open-source framework that compares the current version of the app with the store version and returns the essential details of it like app URL, new app version number, new release note, etc. So you can either redirect or notify the user to update their app. 
+SSAppUpdater is an open-source framework designed to streamline the process of comparing the current version of an app with the version available in the app store for iOS and macOS. It provides key details such as the app's URL, the new version number, and release notes. With this information, you can notify users about the availability of the latest version and redirect them to update the app. 
 
 [![Swift Version][swift-image]][swift-url]
 [![License][license-image]][license-url]
@@ -109,8 +108,7 @@ Run `carthage` to build and drag the `SSAppUpdater`(Sources/SSAppUpdater) into y
     ```
 
 # Inspired 
-    -   SSAppUpdater inspired from [Siren](https://github.com/ArtSabintsev/Siren)
-
+-  SSAppUpdater inspired from [Siren](https://github.com/ArtSabintsev/Siren)
 
 
 [swift-image]:https://img.shields.io/badge/swift-5.0-orange.svg
