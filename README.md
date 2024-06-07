@@ -74,36 +74,42 @@ Run `carthage` to build and drag the `SSAppUpdater`(Sources/SSAppUpdater) into y
 
 # How It Works
 - SSAppUpdater compares the currently installed version of your iOS app with the new store version that is currently available in the App Store. When an update is available, SSAppUpdater is able to present the new version number, Appstore URL, App ID, and release notes to the user giving them the choice to update.
+- In case of default alert, If you receive a new version update alert but lose internet connection, it will not allow you to redirect to the app store and will display an alert.
 
 - How does SSAppUpdater achieve this? Firstly, it makes use of the **iTunes Search API** to retrieve the information. 
-- Parameters usage:   
+
+- To use the default alert, call SSAppUpdater.shared.performCheck with the following parameters:
+
     - `isForceUpdate` - Boolean value checks that the user wants to force update or not.
     - `updateAlertFrequency` - The user can choose alert display time. default value will be `.always`. Alternative values of this property are `daily`,`weekly` and `monthly`.
-    - `showDefaultAlert` - Developers using SSAppUpdater can customize the user interface as required. The Boolean value "showDefaultAlert" determines whether to display the default alert or a custom UI, based on the user's preference.
     - `skipVersionAllow` - This feature lets users activate the "skipVersion" functionality.
     - `redirectToMacAppStore` - This setting is specifically for macOS users. It gives them the choice to either be directed to the App Store app or stay within the current application to access the App Store.
-
+    - `completion` - This will provide you with version information in the completion block.
+    
+- To use the custom alert, call `SSAppUpdater.shared.performCheckAndDisplayCustomAlert` with the following parameter:
+    - `completion` - This will provide you with version information in the completion block.
+    
 # Usage example
 #### Implementation
--   Implementing SSAppUpdater quite easy just add below provided code in your `AppDelegate.swift` or anywhere in your app you need.
+    
+- Implementing SSAppUpdater quite easy just add below provided code in your `AppDelegate.swift` or anywhere in your app you need.
+- The block will provide version information which can then be utilized to generate an custom alert.
 
--   The block will provide version information which can then be utilized to generate an custom alert.
+    ```swift
+        //defaultExample
+        SSAppUpdater.shared.performCheck { (versionInfo) in
+        // Version Info have all the app update related information
+        // Display AppUpdate UI based on versionInfo.isAppUpdateAvailable flag
+        }
 
-```swift
-    //defaultExample
-    SSAppUpdater.shared.performCheck { (versionInfo) in
-    // Version Info have all the app update related information
-    // Display AppUpdate UI based on versionInfo.isAppUpdateAvailable flag
-    }
-
-    //customExample
-    SSAppUpdater.shared.performCheck(isForceUpdate: false, updateAlertFrequency: .always, showDefaultAlert: false) { (versionInfo) in
-    // Version Info have all the app update related information
-    }
-```
+        //customExample
+        SSAppUpdater.shared.performCheckAndDisplayCustomAlert { (versionInfo) in
+        // Version Info have all the app update related information
+        }
+    ```
 
 # Inspired 
--   SSAppUpdater inspired from [Siren](https://github.com/ArtSabintsev/Siren)
+    -   SSAppUpdater inspired from [Siren](https://github.com/ArtSabintsev/Siren)
 
 
 
