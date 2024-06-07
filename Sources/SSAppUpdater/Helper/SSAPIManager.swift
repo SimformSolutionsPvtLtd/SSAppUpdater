@@ -6,6 +6,8 @@
 //  Copyright © 2020 Simform Solutions Pvt Ltd. All rights reserved.
 //
 
+import Foundation
+
 internal enum SSVersionError: Error {
     case invalidResponse
     case invalidBundleInfo
