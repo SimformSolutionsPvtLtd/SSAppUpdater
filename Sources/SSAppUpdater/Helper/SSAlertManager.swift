@@ -12,115 +12,101 @@ internal class SSAlertManager {
     static let shared = SSAlertManager()
 }
 
-// MARK: - Constants
+// MARK: - SSAlertManagerConstants
 extension SSAlertManager {
-    struct AlertManagerConstants {
-        static let update = "Update"
-        static let cancel = "Cancel"
-        static let skipThisVersion = "Skip this version"
+    struct SSAlertManagerConstants {
         static let nsAlertPanel = "_NSAlertPanel"
     }
 }
 
 // MARK: - Show alert
 extension SSAlertManager {
-    /**
-    Displays an alert for updating the application with detailed update information. It handles both mandatory and optional updates.
-
-    - Parameters:
-      - versionInfo: Information about the current version.
-      - releaseNote: Release notes for the update.
-      - trackID: Identifier for tracking purposes.
-      - isForceUpdate: A Boolean value indicating whether the update is mandatory.
-      - appStoreVersion: The version of the application available in the App Store.
-      - dismissParentViewController: Closure to dismiss the parent view controller.
-      - primaryButtonAction: Closure representing the action of the primary button.
-
-    - Platform Specifics:
-      - iOS: Uses UIAlertController for displaying the alert.
-      - macOS: Uses NSAlert for displaying the alert.
-     **/
-
     func showAlert(
-        releaseNote: String,
-        isForceUpdate: Bool,
-        appStoreVersion: String,
-        skipVersionAllow: Bool,
-        dismissParentViewController: @escaping (() -> Void),
-        primaryButtonAction: @escaping (() -> Void)
+        alertIcon: String,
+        title: String,
+        subTitle: String,
+        primaryButtonTitle: String,
+        primaryButtonAction: (() -> Void)? = nil,
+        secondaryButtonTitle: String? = nil,
+        secondaryButtonAction: (() -> Void)? = nil,
+        cancelButtonTitle: String? = nil,
+        cancelButtonAction: (() -> Void)? = nil
     ) {
         #if os(iOS)
             let alert = UIAlertController(
-                title: Bundle.getAppName(),
-                message: "\n A new version \(appStoreVersion) \n\n \(releaseNote)",
+                title: title,
+                message: subTitle,
                 preferredStyle: .alert
             )
-
+            
             alert.addAction(
                 UIAlertAction(
-                    title: AlertManagerConstants.update,
+                    title: primaryButtonTitle,
                     style: .default) { _ in
-                        primaryButtonAction()
+                        if let primaryButtonAction {
+                            primaryButtonAction()
+                        }
                     }
             )
-
-            if skipVersionAllow {
+            
+            if let secondaryButtonTitle {
                 alert.addAction(
                     UIAlertAction(
-                        title: AlertManagerConstants.skipThisVersion,
+                        title: secondaryButtonTitle,
                         style: .default) { _ in
-                            UserDefaults.skipVersion = appStoreVersion
+                            if let secondaryButtonAction {
+                                secondaryButtonAction()
+                            }
                         }
                 )
             }
-        
-            if !isForceUpdate {
+            
+            if let cancelButtonTitle {
                 alert.addAction(
                     UIAlertAction(
-                        title: AlertManagerConstants.cancel,
+                        title: cancelButtonTitle,
                         style: .default) { _ in
                             UIApplication.shared.windows.first?.rootViewController?.dismiss(animated: true, completion: nil)
-                            dismissParentViewController()
+                            if let cancelButtonAction {
+                                cancelButtonAction()
+                            }
                         }
                 )
             }
-
+            
             guard let rootViewController = UIApplication.shared.windows.first?.rootViewController else {
                 return
             }
             rootViewController.present(alert, animated: true, completion: nil)
         #else
-            let presentedAlertWindows = NSApplication.shared.windows.filter {
-                $0.className == AlertManagerConstants.nsAlertPanel
+            let alert = NSAlert()
+            alert.messageText = title
+            alert.informativeText = subTitle
+            alert.alertStyle = .informational
+            alert.addButton(withTitle: primaryButtonTitle)
+            if let iconImage = NSImage(systemSymbolName: alertIcon, accessibilityDescription: nil) {
+                alert.icon = iconImage
             }
-            if presentedAlertWindows.isEmpty {
-                let alert = NSAlert()
-                alert.messageText = Bundle.getAppName()
-                alert.informativeText = "\n A new version \(appStoreVersion) \n\n \(releaseNote)"
-                alert.alertStyle = .informational
-                alert.addButton(withTitle: AlertManagerConstants.update)
-                if let iconImage = NSImage(systemSymbolName: "exclamationmark.arrow.triangle.2.circlepath", accessibilityDescription: nil) {
-                    alert.icon = iconImage
-                }
-                if skipVersionAllow {
-                    alert.addButton(withTitle: AlertManagerConstants.skipThisVersion)
-                }
+            if let secondaryButtonTitle {
+                alert.addButton(withTitle: secondaryButtonTitle)
+            }
 
-                if !isForceUpdate {
-                    alert.addButton(withTitle: AlertManagerConstants.cancel)
-                }
+            if let cancelButtonTitle {
+                alert.addButton(withTitle: cancelButtonTitle)
+            }
 
-                guard let mainWindow = NSApplication.shared.mainWindow else { return }
-                alert.beginSheetModal(for: mainWindow) { (response) in
-                    if response == .alertFirstButtonReturn {
-                        primaryButtonAction()
-                    } else if response == .alertSecondButtonReturn && skipVersionAllow {
-                        UserDefaults.skipVersion = appStoreVersion
-                    } else {
-                        dismissParentViewController()
-                    }
-                    alert.window.close()
+            guard let mainWindow = NSApplication.shared.mainWindow else {
+                return
+            }
+            alert.beginSheetModal(for: mainWindow) { (response) in
+                if response == .alertFirstButtonReturn, let primaryButtonAction {
+                    primaryButtonAction()
+                } else if response == .alertSecondButtonReturn, let secondaryButtonAction {
+                    secondaryButtonAction()
+                } else if let cancelButtonAction {
+                    cancelButtonAction()
                 }
+                alert.window.close()
             }
         #endif
     }

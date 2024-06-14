@@ -15,12 +15,12 @@ struct ContentView: View {
         VStack {
             Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
                 .onAppear(perform: {
-                    SSAppUpdater.shared.performCheck { (versionInfo) in
+                    SSAppUpdater.shared.performCheck(isForceUpdate: true) {  versionInfo in
                         print(versionInfo)
                     }
 
                     /// Uncomment below function to display custom alert
-                    // checkForUpdateDisplayCustomAlert()
+                    /// checkForUpdateDisplayCustomAlert()
                 })
         }
         .frame(width: 500, height: 500)
@@ -30,7 +30,7 @@ struct ContentView: View {
 // MARK: - Private view
 extension ContentView {
     private func checkForUpdateDisplayCustomAlert() {
-        SSAppUpdater.shared.performCheck(showDefaultAlert: false) { (versionInfo) in
+        SSAppUpdater.shared.performCheckAndDisplayCustomAlert { (versionInfo) in
             DispatchQueue.main.async {
                 if let appVersion = versionInfo.appVersion,
                     let releaseNote = versionInfo.appReleaseNote {
