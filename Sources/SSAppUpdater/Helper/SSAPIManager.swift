@@ -17,7 +17,7 @@ internal class SSAPIManager {
     
     /// Constants used for the iTunes Lookup API request.
     struct Constant {
-        static let iTunesURL = "http://itunes.apple.com/lookup?bundleId="
+        static let iTunesURL = "https://itunes.apple.com/lookup?bundleId="
     }
     
     // MARK: - Variable Declaration
