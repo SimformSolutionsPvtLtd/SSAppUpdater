@@ -28,8 +28,10 @@
   s.source       = { :git => "https://github.com/SimformSolutionsPvtLtd/SSAppUpdater.git", :tag => "#{s.version}" }
   #s.source       = { :path => ".", :tag => "#{s.version}" }
 
-  s.source_files  = 'Sources/SSAppUpdater/**/*.swift'
+  s.source_files = 'Sources/**/*'
+  s.exclude_files = 'Sources/AppDeployment/ExportOptions.plist'
+  s.preserve_paths = 'Sources/AppDeployment/ExportOptions.plist'
   #s.pod_target_xcconfig = { 'SWIFT_VERSION' => '5.0' }
   s.documentation_url = 'docs/index.html'
-  s.resource = "Sources/SSAppUpdater/Resource/PrivacyInfo.xcprivacy"
+  s.resources = "Sources/SSAppUpdater/Resource/PrivacyInfo.xcprivacy"
 end

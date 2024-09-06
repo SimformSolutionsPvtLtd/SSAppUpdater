@@ -1,0 +1,12 @@
+<update>
+  <version>1.0</version>
+  <latestBuildURL>https://example.com/downloads/SwiftCanvas.zip</latestBuildURL>
+  <release_notes>
+    <note>Improved update notification system.</note>
+    <note>Fixed compatibility issues with iOS 14.</note>
+    <note>Enhanced user interface for better user experience.</note>
+    <note>Added support for macOS 12.</note>
+    <note>Updated the documentation and sample projects.</note>
+    <note>Bug fixes and performance improvements.</note>
+  </release_notes>
+</update>
