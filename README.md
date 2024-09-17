@@ -31,12 +31,12 @@ SSAppUpdater is an open-source framework designed to streamline the process of c
 
 #### Automatic Version Comparison through AppStore:
 
-##### Screenshots(iOS)
+##### - iOS
 | Force Update | Optional Update | Skip Version |
 | :--: | :-----: | :--: |
 | ![](Assets/ForceUpdateIOS.png) | ![](Assets/OptionalUpdateIOS.png) | ![](Assets/skipVersionIOS.png) |
     
-#### Screenshots(macOS)
+#### - macOS
 | Force update | Optional update |
 | :--: | :---: |
 | ![](Assets/DefaultForceUpdateAlert.png) | ![](Assets/DefaultOptionalUpdateAlert.png) |
@@ -46,7 +46,7 @@ SSAppUpdater is an open-source framework designed to streamline the process of c
 | ![](Assets/DefaultSkipVersion.png) | ![](Assets/UpdateWithCustomAlert.png) |
 
 ### Installation
-#### CocoaPods
+#### 1. CocoaPods
  
 - You can add SSAppUpdater to your Podfile to install it with CocoaPods. Add the following line to your Podfile within the target block where you want to use SSAppUpdater:
       
@@ -56,19 +56,37 @@ SSAppUpdater is an open-source framework designed to streamline the process of c
        ```import SSAppUpdater```
 
 
-#### Manually
--   Download and drop **SSAppUpdater** folder in your project.
--   Congratulations!
+#### 2. Manually
+-   To manually add SSAppUpdater to your project, follow these steps:
+    - Obtain the SSAppUpdater source code from the relevant repository or website.
+    Extract and Add to Your Project
+    - Drag and drop the SSAppUpdater folder into your Xcode project’s file navigator. Make sure to select "Copy items if needed" to include the files in your project directory.
 
-#### Swift Package Manager
--   When using Xcode 11 or later, you can install `SSAppUpdater` by going to your Project settings > `Swift Packages` and add the repository by providing the GitHub URL. Alternatively, you can go to `File` > `Swift Packages` > `Add Package Dependencies...`
-```swift
-dependencies: [
-    .package(url: "https://github.com/SimformSolutionsPvtLtd/SSAppUpdater.git", from: "1.1.0")
-]
-```
+-   You’re now ready to move forward.
 
-####  Carthage
+#### 3. Swift Package Manager
+-   If you’re using Xcode 11 or later, you can install SSAppUpdater by following these steps:
+
+    1. Add via Project Settings:
+        - Open your project in Xcode.
+        - Navigate to your project settings.
+        - Select the Swift Packages tab.
+        - Click the + button to add a new package.
+        - Enter the GitHub repository URL for SSAppUpdater and follow the prompts to complete the installation.
+    
+    2. Add via Menu Option:
+        - Open Xcode and go to File in the menu bar.
+        - Select Swift Packages, then choose Add Package Dependency....
+        - Enter the GitHub repository URL for SSAppUpdater and follow the instructions to add it to your project.
+        - This will integrate SSAppUpdater into your project, allowing you to start using it immediately.
+
+    ```swift
+    dependencies: [
+        .package(url: "https://github.com/SimformSolutionsPvtLtd/SSAppUpdater.git", from: "1.1.0")
+    ]
+    ```
+
+#### 4. Carthage
 -   [Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.You can install Carthage with [Homebrew](http://brew.sh/) using the following command:
 ```bash
 $ brew update
