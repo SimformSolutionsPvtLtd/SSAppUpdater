@@ -1,8 +1,3 @@
-# SSAppUpdater
-
-
-SSAppUpdater is an open-source framework designed to streamline the process of comparing the current version of an app with the version available in the app store for iOS and macOS. It provides key details such as the app's URL, the new version number, and release notes. With this information, you can notify users about the availability of the latest version and redirect them to update the app. 
-
 [![Swift Version][swift-image]][swift-url]
 [![License][license-image]][license-url]
 [![Carthage Compatible][carthage-image]][carthage-url]
@@ -10,13 +5,38 @@ SSAppUpdater is an open-source framework designed to streamline the process of c
 [![Platform][platform-image]][platform-url]
 [![PRs Welcome][PR-image]][PR-url]
 
-# Screenshots
-#### Update Type(iOS)
+# SSAppUpdater
+
+SSAppUpdater is an open-source framework designed to streamline the process of comparing the current version of an app with the version available in the app store for iOS and macOS. It provides key details such as the app's URL, the new version number, and release notes. With this information, you can notify users about the availability of the latest version and redirect them to update the app. 
+
+### Table of contents
+1. [Requirements](#requirements)
+2. [Key Features](#key-features)
+    - [Automatic Version Comparison through AppStore]()
+    - [Manual macOS updater through server]()
+    - [Customizable Update Alerts]()
+3. [Installation](#installation)
+4. [Usage](#usage)
+
+### Requirements
+  - iOS 13.0+
+  - macOS 11.0+
+  - Xcode 9+
+  - A server to host the latest build for the **manual macOS updater**
+
+### Key Features:
+1. **Automatic Version Comparison through AppStore**: SSAppUpdater automatically compares the app’s current version with the latest version available in the App Store, ensuring users are always informed when updates are available.
+2. **Manual macOS updater through server**: SSAppUpdater allows for manual version comparison on macOS by checking the current app version against the latest release available on a custom server, offering flexibility for apps not distributed through the App Store.
+3. **Customizable Update Alerts**: The framework offers flexible options to present update alerts to users, enabling developers to control when and how they notify users about new updates using customised UI.
+
+#### Automatic Version Comparison through AppStore:
+
+##### Screenshots(iOS)
 | Force Update | Optional Update | Skip Version |
 | :--: | :-----: | :--: |
 | ![](Assets/ForceUpdateIOS.png) | ![](Assets/OptionalUpdateIOS.png) | ![](Assets/skipVersionIOS.png) |
     
-#### Update Type(macOS)
+#### Screenshots(macOS)
 | Force update | Optional update |
 | :--: | :---: |
 | ![](Assets/DefaultForceUpdateAlert.png) | ![](Assets/DefaultOptionalUpdateAlert.png) |
@@ -24,19 +44,8 @@ SSAppUpdater is an open-source framework designed to streamline the process of c
 | Skip version | Update with custom alert |
 | :--: | :---: |
 | ![](Assets/DefaultSkipVersion.png) | ![](Assets/UpdateWithCustomAlert.png) |
-# Features!
-  - Check for new version of your installed application
-  - Provides new version release note
-  - Provides AppID and AppStore URL
-  - Provides support of custom alerts for updates.
-  - CocoaPods
 
-# Requirements
-  - iOS 13.0+
-  - macOS 11.0+
-  - Xcode 9+
-
-# Installation
+### Installation
 #### CocoaPods
  
 - You can use CocoaPods to install SSAppUpdater by adding it to your Podfile:
