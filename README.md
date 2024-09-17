@@ -98,7 +98,7 @@ SSAppUpdater is an open-source framework designed to streamline the process of c
     ```ogdl
         github ""SimformSolutionsPvtLtd/SSAppUpdater""
     ```
-Run `carthage` to build and drag the `SSAppUpdater`(Sources/SSAppUpdater) into your Xcode project.
+-   Run `carthage` to build and drag the `SSAppUpdater`(Sources/SSAppUpdater) into your Xcode project.
 
 # How It Works
 - SSAppUpdater compares the currently installed version of your iOS app with the new store version that is currently available in the App Store. When an update is available, SSAppUpdater is able to present the new version number, Appstore URL, App ID, and release notes to the user giving them the choice to update.
