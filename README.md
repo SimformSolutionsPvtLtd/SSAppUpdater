@@ -87,16 +87,17 @@ SSAppUpdater is an open-source framework designed to streamline the process of c
     ```
 
 #### 4. Carthage
--   [Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.You can install Carthage with [Homebrew](http://brew.sh/) using the following command:
-```bash
-$ brew update
-$ brew install carthage
-```
-To integrate `SSAppUpdater` into your Xcode project using Carthage, add the following line to your `Cartfile`:
+-   [Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks. To install Carthage, you can use Homebrew with the following command:
 
-```ogdl
-github ""SimformSolutionsPvtLtd/SSAppUpdater""
-```
+    ```bash
+    $ brew update
+    $ brew install carthage
+    ```
+-   To integrate SSAppUpdater into your Xcode project using Carthage, add the following line to your Cartfile:
+
+    ```ogdl
+        github ""SimformSolutionsPvtLtd/SSAppUpdater""
+    ```
 Run `carthage` to build and drag the `SSAppUpdater`(Sources/SSAppUpdater) into your Xcode project.
 
 # How It Works
