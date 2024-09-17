@@ -48,12 +48,13 @@ SSAppUpdater is an open-source framework designed to streamline the process of c
 ### Installation
 #### CocoaPods
  
-- You can use CocoaPods to install SSAppUpdater by adding it to your Podfile:
-
-       use_frameworks!
+- You can add SSAppUpdater to your Podfile to install it with CocoaPods. Add the following line to your Podfile within the target block where you want to use SSAppUpdater:
+      
        pod 'SSAppUpdater'
 
-- import SSAppUpdater
+- To use SSAppUpdater in your project, simply import it where needed by adding the following line to your Swift files:
+       ```import SSAppUpdater```
+
 
 #### Manually
 -   Download and drop **SSAppUpdater** folder in your project.
