@@ -1,0 +1,26 @@
+# Version Information
+#
+# This file contains the latest information regarding the new version of the application.
+# Be sure to update this file with every new release and use this information to generate
+# the version.xml file or other necessary outputs.
+
+
+# No need to manually update the version; it will be handled automatically.
+Version: 1.6.0
+
+
+# In the server URL, you need to provide a link to the directory where you will upload your files on the server. Add slash after directory in your path.
+Server URL: https://example.com/downloads/
+
+# Please include the release notes detailing the latest update.
+Release Notes:
+  - Improved update notification system.
+  - Fixed compatibility issues with iOS 14.
+  - Enhanced user interface for better user experience.
+  - Added support for macOS 12.
+  - Updated the documentation and sample projects.
+  - Bug fixes and performance improvements.
+
+# Instructions:
+# 1. Use the above information to generate the version.xml file.
+# 2. Please ensure the Build URL is accessible and correctly points to the latest build, without appending the final path component (the build name)

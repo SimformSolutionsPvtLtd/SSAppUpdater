@@ -52,6 +52,7 @@
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		642CC13B4C27E74696219498 /* Pods_SSAppUpdaterMac_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SSAppUpdaterMac_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		77F64E3334A3D9052FC37C81 /* Pods-SSAppUpdater_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSAppUpdater_Example.release.xcconfig"; path = "Target Support Files/Pods-SSAppUpdater_Example/Pods-SSAppUpdater_Example.release.xcconfig"; sourceTree = "<group>"; };
+		7D12F03E2C6A130900633757 /* Project.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = Project.yml; sourceTree = "<group>"; };
 		7D68EBF72BE4C77000C44596 /* AlertPanelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPanelController.swift; sourceTree = "<group>"; };
 		7D68EBFB2BE4C7D900C44596 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		7D6B16B92BD6523A00B4F283 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -115,6 +116,7 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
+				7D12F03E2C6A130900633757 /* Project.yml */,
 				7D87F0D72BD678830038AB23 /* SSAppUpdater_Example.entitlements */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for SSAppUpdater */,
@@ -542,6 +544,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = SSAppUpdater;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -590,6 +593,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = SSAppUpdater;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -710,6 +714,7 @@
 				CODE_SIGN_ENTITLEMENTS = SSAppUpdater_Example.entitlements;
 				DEVELOPMENT_TEAM = K7XJG666ZW;
 				INFOPLIST_FILE = "SSAppUpdater_Example copy-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = SSAppUpdater;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
@@ -736,6 +741,7 @@
 				CODE_SIGN_ENTITLEMENTS = SSAppUpdater_Example.entitlements;
 				DEVELOPMENT_TEAM = K7XJG666ZW;
 				INFOPLIST_FILE = "SSAppUpdater_Example copy-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = SSAppUpdater;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 11.0;

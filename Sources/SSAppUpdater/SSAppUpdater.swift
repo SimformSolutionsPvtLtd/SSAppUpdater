@@ -11,19 +11,18 @@ import Foundation
 public class SSAppUpdater {
     // MARK: - Variables
     public static let shared = SSAppUpdater()
-
     private var versionCheck: PerformVersionCheck!
-    
     internal var showDefaultAlert: Bool = true
-    
-    var updateAlertFrequency: SSUpdateFrequency = .always
-    
-    var isForceUpdate: Bool = false
-    
-    var redirectToAppStore: Bool = false
 
+    var updateAlertFrequency: SSUpdateFrequency = .always
+    var isForceUpdate: Bool = false
+    var redirectToAppStore: Bool = false
     var skipVersionAllow: Bool = false
-    
+
+    // Manual macOS update
+    var serverURL: String = ""
+    var isManualAppUpdater = false
+
     // MARK: - Initialisers
     private init() { }
 }
@@ -51,7 +50,7 @@ extension SSAppUpdater {
         self.updateAlertFrequency = updateAlertFrequency
         self.skipVersionAllow = skipVersionAllow
         self.redirectToAppStore = redirectToAppStore
-        self.versionCheck = PerformVersionCheck(completion: completion)
+        self.versionCheck = PerformVersionCheck(isManualMacOSUpdate: false, completion: completion)
     }
 
     /**
@@ -64,6 +63,31 @@ extension SSAppUpdater {
     */
     public func performCheckAndDisplayCustomAlert(completion: @escaping (SSVersionInfo) -> Void) {
         self.showDefaultAlert = false
-        self.versionCheck = PerformVersionCheck(completion: completion)
+        self.versionCheck = PerformVersionCheck(isManualMacOSUpdate: false, completion: completion)
+        self.isManualAppUpdater = false
+    }
+
+    /**
+    Performs a version check using version information from an XML file.
+
+    This function initiates a version check by fetching and parsing version data from a specified XML file URL. The result of the check is provided through a completion handler that returns an `SSVersionInfo` object.
+
+    - Parameters:
+        - url: A `String` representing the URL of the XML file containing version information.
+        - isForceUpdate: A `Bool` indicating whether the version check should force an update, even if the version is up-to-date. The default value is `false`.
+        - completion: A closure that takes an `SSVersionInfo` object as a parameter. This closure is executed when the version check is complete, providing the fetched version information.
+    */
+    public func performManualMacAppVersionCheck(
+        url: String,
+        isForceUpdate: Bool = false,
+        completion: @escaping (SSVersionInfo) -> Void
+    ) {
+        self.serverURL = url
+        self.isForceUpdate = isForceUpdate
+        self.versionCheck = PerformVersionCheck(
+            isManualMacOSUpdate: true,
+            completion: completion
+        )
+        self.isManualAppUpdater = true
     }
 }
