@@ -12,11 +12,8 @@ SSAppUpdater is an open-source framework designed to streamline the process of c
 ### Table of contents
 1. [Requirements](#requirements)
 2. [Key Features](#key-features)
-    - [Automatic Version Comparison through AppStore]()
-    - [Manual macOS updater through server]()
-    - [Customizable Update Alerts]()
 3. [Installation](#installation)
-4. [Usage](#usage)
+4. [Detailed Overview of the Features](#detailed-Overview-of-the-Features)
 
 ### Requirements
   - iOS 13.0+
@@ -31,12 +28,12 @@ SSAppUpdater is an open-source framework designed to streamline the process of c
 
 #### Automatic Version Comparison through AppStore:
 
-##### - iOS
+##### iOS
 | Force Update | Optional Update | Skip Version |
 | :--: | :-----: | :--: |
 | ![](Assets/ForceUpdateIOS.png) | ![](Assets/OptionalUpdateIOS.png) | ![](Assets/skipVersionIOS.png) |
     
-#### - macOS
+#### macOS
 | Force update | Optional update |
 | :--: | :---: |
 | ![](Assets/DefaultForceUpdateAlert.png) | ![](Assets/DefaultOptionalUpdateAlert.png) |
@@ -100,7 +97,7 @@ SSAppUpdater is an open-source framework designed to streamline the process of c
     ```
 -   Run `carthage` to build and drag the `SSAppUpdater`(Sources/SSAppUpdater) into your Xcode project.
 
-# Detailed Overview of the Features
+### Detailed Overview of the Features
 #### 1. Automatic Version Comparison through AppStore:
 - SSAppUpdater automatically checks the currently installed version of your iOS or macOS app against the latest version available on the App Store. When an update is available, it displays the new version number, App Store URL, App ID, and release notes, giving users the option to update. If the default alert is used and an internet connection is lost after receiving the update notification, SSAppUpdater will prevent redirection to the App Store and show an alert regarding the connection issue.
 
