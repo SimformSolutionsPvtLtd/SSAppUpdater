@@ -22,7 +22,7 @@ SSAppUpdater is an open-source framework designed to streamline the process of c
   - A server to host the latest build for the **manual macOS updater**
 
 ### Key Features:
-1. **Automatic Version Comparison through AppStore**: SSAppUpdater automatically compares the app’s current version with the latest version available in the App Store, ensuring users are always informed when updates are available.
+1. [**Automatic Version Comparison through AppStore:**](#automatic-version-comparison-through-appStore): SSAppUpdater automatically compares the app’s current version with the latest version available in the App Store, ensuring users are always informed when updates are available.
 2. **Manual macOS updater through server**: SSAppUpdater allows for manual version comparison on macOS by checking the current app version against the latest release available on a custom server, offering flexibility for apps not distributed through the App Store.
 3. **Customizable Update Alerts**: The framework offers flexible options to present update alerts to users, enabling developers to control when and how they notify users about new updates using customised UI.
 
