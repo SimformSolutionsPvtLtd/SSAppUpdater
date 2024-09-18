@@ -22,7 +22,7 @@ SSAppUpdater is an open-source framework designed to streamline the process of c
   - A server to host the latest build for the **manual macOS updater**
 
 ### Key Features:
-1. [**Automatic Version Comparison through AppStore:**](#automatic-version-comparison-through-appStore:): SSAppUpdater automatically compares the app’s current version with the latest version available in the App Store, ensuring users are always informed when updates are available.
+1. [**Automatic Version Comparison through AppStore:**](#automatic-version-comparison-through-appStore): SSAppUpdater automatically compares the app’s current version with the latest version available in the App Store, ensuring users are always informed when updates are available.
 
     ##### iOS
     | Force Update | Optional Update | Skip Version |
@@ -97,7 +97,7 @@ SSAppUpdater is an open-source framework designed to streamline the process of c
 -   Run `carthage` to build and drag the `SSAppUpdater`(Sources/SSAppUpdater) into your Xcode project.
 
 ### Detailed Overview of the Features
-#### 1. Automatic Version Comparison through AppStore:
+#### 1. Automatic Version Comparison through AppStore
 - SSAppUpdater automatically checks the currently installed version of your iOS or macOS app against the latest version available on the App Store. When an update is available, it displays the new version number, App Store URL, App ID, and release notes, giving users the option to update. If the default alert is used and an internet connection is lost after receiving the update notification, SSAppUpdater will prevent redirection to the App Store and show an alert regarding the connection issue.
 
 - It utilises the **iTunes Search API** to fetch detailed information, which is then used to display an update alert to the user.
