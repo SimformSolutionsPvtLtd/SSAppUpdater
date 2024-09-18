@@ -100,13 +100,26 @@ SSAppUpdater is an open-source framework designed to streamline the process of c
     ```
 -   Run `carthage` to build and drag the `SSAppUpdater`(Sources/SSAppUpdater) into your Xcode project.
 
-# How It Works
-- SSAppUpdater compares the currently installed version of your iOS app with the new store version that is currently available in the App Store. When an update is available, SSAppUpdater is able to present the new version number, Appstore URL, App ID, and release notes to the user giving them the choice to update.
-- In case of default alert, If you receive a new version update alert but lose internet connection, it will not allow you to redirect to the app store and will display an alert.
+# Detailed Overview of the Features
+#### 1. Automatic Version Comparison through AppStore:
+- SSAppUpdater automatically checks the currently installed version of your iOS or macOS app against the latest version available on the App Store. When an update is available, it displays the new version number, App Store URL, App ID, and release notes, giving users the option to update. If the default alert is used and an internet connection is lost after receiving the update notification, SSAppUpdater will prevent redirection to the App Store and show an alert regarding the connection issue.
 
-- How does SSAppUpdater achieve this? Firstly, it makes use of the **iTunes Search API** to retrieve the information. 
+- It utilises the **iTunes Search API** to fetch detailed information, which is then used to display an update alert to the user.
 
-- To use the default alert, call SSAppUpdater.shared.performCheck with the following parameters:
+- There are two types of alert:
+    1. Default alert:
+    - It will display a default NSAlert on macOS or UIAlert on iOS. 
+    - To use the default alert, call `SSAppUpdater.shared.performCheck` with the following parameters:
+        - `isForceUpdate` - Boolean value checks that the user wants to force update or not.
+        - `updateAlertFrequency` - The user can choose alert display time. default value will be `.always`. Alternative values of this property are `daily`,`weekly` and `monthly`.
+        - `skipVersionAllow` - This feature lets users activate the "skipVersion" functionality.
+        - `redirectToMacAppStore` - This setting is specifically for macOS users. It gives them the choice to either be directed to the App Store app or stay within the current application to access the App Store.
+        - `completion` - This will provide you with version information in the completion block.
+    2. Custom alert:
+    
+    
+
+- To use the default alert, call `SSAppUpdater.shared.performCheck` with the following parameters:
 
     - `isForceUpdate` - Boolean value checks that the user wants to force update or not.
     - `updateAlertFrequency` - The user can choose alert display time. default value will be `.always`. Alternative values of this property are `daily`,`weekly` and `monthly`.
