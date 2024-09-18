@@ -122,8 +122,23 @@ SSAppUpdater is an open-source framework designed to streamline the process of c
             // Display AppUpdate UI based on versionInfo.isAppUpdateAvailable flag
         }
     ```
+#### 2. Manual macOS updater through server:
+- The **prerequisite** for using this feature is having a **server** to upload the latest build.
+- This feature is available only for **macOS applications** that are not distributed through the App Store but still need to keep users' systems up to date.
+- It also involves replacing the current build with a new one. When the user presses 'Update' in the default alert, the application will automatically quit, remove the old version, and install the latest build.
+- **Usage Guidelines:**
+    - Install the pods of SSAppUpdater.
+    - The BuildRelease.sh script will be found in the Pods/SSAppUpdater/Sources/AppDeployment directory.
+    - Configuring Build Scripts
+        - Open Xcode and go to Edit Scheme.
+        - Select Archive from the left sidebar.
+        - In the Post-actions tab, click the + icon and choose New Run Script Phase.
+        - In the newly added run script phase, enter the following script:
+            ``` "${PODS_ROOT}/SSAppUpdater/Sources/AppDeployment/BuildRelease.sh" ```
 
-#### 2. Customisable Update Alerts:
+
+
+#### 3. Customisable Update Alerts:
 - A custom alert will be displayed where `SSAppUpdater.shared.performCheckAndDisplayCustomAlert` returns version information, allowing you to populate the alert with the retrieved details.
 - To use the custom alert, call `SSAppUpdater.shared.performCheckAndDisplayCustomAlert` with the following parameter:
     - `completion` - This will provide you with version information in the completion block.
