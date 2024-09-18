@@ -147,7 +147,7 @@ function showAlert() {
     fi
 }
 
-showAlert "Please wait until the process completes. It will take a while."
+showAlert "Please wait for the process to complete before the next pop-up appears. This may take some time."
 cleanUpDirectory
 createArchive
 compressApp
