@@ -106,47 +106,35 @@ SSAppUpdater is an open-source framework designed to streamline the process of c
 
 - It utilises the **iTunes Search API** to fetch detailed information, which is then used to display an update alert to the user.
 
-- There are two types of alert:
-    1. Default alert:
-        - It will display a default NSAlert on macOS or UIAlert on iOS. 
-        - To use the default alert, call `SSAppUpdater.shared.performCheck` with the following parameters:
-            - `isForceUpdate` - Boolean value checks that the user wants to force update or not.
-            - `updateAlertFrequency` - The user can choose alert display time. default value will be `.always`. Alternative values of this property are `daily`,`weekly` and `monthly`.
-            - `skipVersionAllow` - This feature lets users activate the "skipVersion" functionality.
-            - `redirectToMacAppStore` - This setting is specifically for macOS users. It gives them the choice to either be directed to the App Store app or stay within the current application to access the App Store.
-            - `completion` - This will provide you with version information in the completion block.
+- It allows you to display a default NSAlert on macOS or UIAlert on iOS. 
+- To use the default alert, call `SSAppUpdater.shared.performCheck` with the following parameters:
+    - `isForceUpdate` - Boolean value checks that the user wants to force update or not.
+    - `updateAlertFrequency` - The user can choose alert display time. default value will be `.always`. Alternative values of this property are `daily`,`weekly` and `monthly`.
+    - `skipVersionAllow` - This feature lets users activate the "skipVersion" functionality.
+    - `redirectToMacAppStore` - This setting is specifically for macOS users. It gives them the choice to either be directed to the App Store app or stay within the current application to access the App Store.
+    - `completion` - This will provide you with version information in the completion block.
             
-        Usage:
+    Usage:
                
-        ```swift
-            SSAppUpdater.shared.performCheck() { (versionInfo) in
-                // Version Info have all the app update related information
-                // Display AppUpdate UI based on versionInfo.isAppUpdateAvailable flag
-            }
-        ```
-    2. Custom alert:
-        - A custom alert will be displayed where SSAppUpdater.shared.performCheck returns version information, allowing you to populate the alert with the retrieved details.
-        - To use the custom alert, call `SSAppUpdater.shared.performCheckAndDisplayCustomAlert` with the following parameter:
-            - `completion` - This will provide you with version information in the completion block.
-
-# Usage example
-#### Implementation
-    
-- Implementing SSAppUpdater quite easy just add below provided code in your `AppDelegate.swift` or anywhere in your app you need.
-- The block will provide version information which can then be utilized to generate an custom alert.
-
     ```swift
-        //defaultExample
-        SSAppUpdater.shared.performCheck { (versionInfo) in
-        // Version Info have all the app update related information
-        // Display AppUpdate UI based on versionInfo.isAppUpdateAvailable flag
-        }
-
-        //customExample
-        SSAppUpdater.shared.performCheckAndDisplayCustomAlert { (versionInfo) in
-        // Version Info have all the app update related information
+        SSAppUpdater.shared.performCheck() { (versionInfo) in
+            // Version Info have all the app update related information
+            // Display AppUpdate UI based on versionInfo.isAppUpdateAvailable flag
         }
     ```
+
+#### 2. Customisable Update Alerts:
+- A custom alert will be displayed where `SSAppUpdater.shared.performCheckAndDisplayCustomAlert` returns version information, allowing you to populate the alert with the retrieved details.
+- To use the custom alert, call `SSAppUpdater.shared.performCheckAndDisplayCustomAlert` with the following parameter:
+    - `completion` - This will provide you with version information in the completion block.
+            
+    Usage:            
+    ```swift
+        SSAppUpdater.shared.performCheckAndDisplayCustomAlert { (versionInfo) in
+            // Version Info have all the app update related information
+        }
+    ```
+
 
 # Inspired 
 -  SSAppUpdater inspired from [Siren](https://github.com/ArtSabintsev/Siren)
