@@ -24,19 +24,19 @@ SSAppUpdater is an open-source framework designed to streamline the process of c
 ### Key Features:
 1. [**Automatic Version Comparison through AppStore:**](#automatic-version-comparison-through-appStore): SSAppUpdater automatically compares the app’s current version with the latest version available in the App Store, ensuring users are always informed when updates are available.
 
-##### iOS
-| Force Update | Optional Update | Skip Version |
-| :--: | :-----: | :--: |
-| ![](Assets/ForceUpdateIOS.png) | ![](Assets/OptionalUpdateIOS.png) | ![](Assets/skipVersionIOS.png) |
-    
-#### macOS
-| Force update | Optional update |
-| :--: | :---: |
-| ![](Assets/DefaultForceUpdateAlert.png) | ![](Assets/DefaultOptionalUpdateAlert.png) |
+    ##### iOS
+    | Force Update | Optional Update | Skip Version |
+    | :--: | :-----: | :--: |
+    | ![](Assets/ForceUpdateIOS.png) | ![](Assets/OptionalUpdateIOS.png) | ![](Assets/skipVersionIOS.png) |
+        
+    #### macOS
+    | Force update | Optional update |
+    | :--: | :---: |
+    | ![](Assets/DefaultForceUpdateAlert.png) | ![](Assets/DefaultOptionalUpdateAlert.png) |
 
-| Skip version | Update with custom alert |
-| :--: | :---: |
-| ![](Assets/DefaultSkipVersion.png) | ![](Assets/UpdateWithCustomAlert.png) |
+    | Skip version | Update with custom alert |
+    | :--: | :---: |
+    | ![](Assets/DefaultSkipVersion.png) | ![](Assets/UpdateWithCustomAlert.png) |
 
 2. **Manual macOS updater through server**: SSAppUpdater allows for manual version comparison on macOS by checking the current app version against the latest release available on a custom server, offering flexibility for apps not distributed through the App Store.
 3. **Customizable Update Alerts**: The framework offers flexible options to present update alerts to users, enabling developers to control when and how they notify users about new updates using customised UI.
