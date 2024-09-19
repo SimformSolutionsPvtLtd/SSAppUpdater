@@ -80,10 +80,12 @@ extension SSAppUpdater {
     public func performManualMacAppVersionCheck(
         url: String,
         isForceUpdate: Bool = false,
+        skipVersionAllow: Bool = false,
         completion: @escaping (SSVersionInfo) -> Void
     ) {
         self.serverURL = url
         self.isForceUpdate = isForceUpdate
+        self.skipVersionAllow = skipVersionAllow
         self.versionCheck = PerformVersionCheck(
             isManualMacOSUpdate: true,
             completion: completion

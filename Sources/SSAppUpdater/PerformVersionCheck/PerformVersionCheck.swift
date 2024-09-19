@@ -21,7 +21,9 @@ internal class PerformVersionCheck: NSObject, SKStoreProductViewControllerDelega
         self.completion = completion
         super.init()
         if isManualMacOSUpdate {
+            #if os(macOS)
             processManualVersionCheck(from: SSAppUpdater.shared.serverURL)
+            #endif
         } else {
             #if os(iOS)
             NotificationCenter.default.addObserver(
@@ -49,6 +51,7 @@ extension PerformVersionCheck {
         static let update = "Update"
         static let cancel = "Cancel"
         static let ok = "OK"
+        static let manualMacAppUpdateErrorTitle = "Something went wrong!!"
         static let skipThisVersion = "Skip this version"
 
         static let noInternetAlertTitle = "No internet"

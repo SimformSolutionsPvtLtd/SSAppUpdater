@@ -7,23 +7,26 @@
 
 import Foundation
 
+#if os(macOS)
 // MARK: - Perform version check manual
 extension PerformVersionCheck {
     func processManualVersionCheck(from serverURL: String) {
         URLCache.shared.removeAllCachedResponses()
-        SSAPIManager.shared.checkForManualUpdate(serverURL: serverURL) { content in
-            if let version = self.getXMLTagValue(
-                content: content,
-                tagName: PerformVersionCheckConstants.versionTag
-            ), let latestBuildURL = self.getXMLTagValue(
-                content: content,
-                tagName: PerformVersionCheckConstants.latestBuildURLTag
-            ), self.compareVersions(
-                newBuildVersion: String(version),
-                currentBuildVersion: Bundle.appVersion ?? ""
-            ) == .orderedDescending {
-                let releaseNote = self.getArrayOfXMLTagValues(content: content, tagName: "note")
-                let formattedReleaseNote = releaseNote.map { "• \($0)" }.joined(separator: "\n")
+        SSAPIManager.shared.checkForManualUpdate(serverURL: serverURL) { result in
+            switch result {
+            case .success(let content):
+                if let version = self.getXMLTagValue(
+                    content: content,
+                    tagName: PerformVersionCheckConstants.versionTag
+                ), let latestBuildURL = self.getXMLTagValue(
+                    content: content,
+                    tagName: PerformVersionCheckConstants.latestBuildURLTag
+                ), self.compareVersions(
+                    newBuildVersion: String(version),
+                    currentBuildVersion: Bundle.appVersion ?? ""
+                ) == .orderedDescending, UserDefaults.skipVersion != version {
+                    let releaseNote = self.getArrayOfXMLTagValues(content: content, tagName: "note")
+                    let formattedReleaseNote = releaseNote.map { "• \($0)" }.joined(separator: "\n")
                     guard let url = URL(string: latestBuildURL) else { return }
                     if !FileManager.default.fileExists(atPath: self.latestBuildFileURL(url: url).path) {
                         self.downloadUpdatedBuild(urlString: latestBuildURL) { isLatestAutoUpdateFileDownloaded in
@@ -40,15 +43,30 @@ extension PerformVersionCheck {
                             url: url
                         )
                     }
-                self.completion(
-                    SSVersionInfo(
-                        isAppUpdateAvailable: nil,
-                        appReleaseNote: formattedReleaseNote,
-                        appVersion: version,
-                        appID: nil,
-                        appURL: nil
+                    self.completion(
+                        SSVersionInfo(
+                            isAppUpdateAvailable: nil,
+                            appReleaseNote: formattedReleaseNote,
+                            appVersion: version,
+                            appID: nil,
+                            appURL: nil
+                        )
                     )
-                )
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    SSAlertManager.shared.showAlert(
+                        alertIcon: PerformVersionCheckConstants.warningSystemImage,
+                        title: PerformVersionCheckConstants.manualMacAppUpdateErrorTitle,
+                        subTitle: error.message,
+                        primaryButtonTitle: PerformVersionCheckConstants.ok,
+                        primaryButtonAction: { },
+                        secondaryButtonTitle: nil,
+                        secondaryButtonAction: { },
+                        cancelButtonTitle: SSAppUpdater.shared.isForceUpdate ? nil : PerformVersionCheckConstants.cancel,
+                        cancelButtonAction: { }
+                    )
+                }
             }
         }
     }
@@ -222,10 +240,13 @@ extension PerformVersionCheck {
                     self.replaceAndRelaunchWithLatestBuild(url: url)
                 },
                 secondaryButtonTitle: SSAppUpdater.shared.skipVersionAllow ? PerformVersionCheckConstants.skipThisVersion : nil,
-                secondaryButtonAction: { },
+                secondaryButtonAction: { 
+                    UserDefaults.skipVersion = version
+                },
                 cancelButtonTitle: SSAppUpdater.shared.isForceUpdate ? nil : PerformVersionCheckConstants.cancel,
                 cancelButtonAction: { }
             )
         }
     }
 }
+#endif
