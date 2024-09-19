@@ -9,11 +9,15 @@
 
 SSAppUpdater is an open-source framework designed to streamline the process of comparing the current version of an app with the version available in the app store for iOS and macOS. It provides key details such as the app's URL, the new version number, and release notes. With this information, you can notify users about the availability of the latest version and redirect them to update the app. 
 
+***
+
 ### Table of contents
 1. [Requirements](#requirements)
 2. [Key Features](#key-features)
 3. [Installation](#installation)
 4. [Detailed Overview of the Features](#detailed-Overview-of-the-Features)
+
+___
 
 ### Requirements
   - iOS 13.0+
@@ -21,6 +25,7 @@ SSAppUpdater is an open-source framework designed to streamline the process of c
   - Xcode 9+
   - A server to host the latest build for the **manual macOS updater**
 
+___
 
 ### Key Features:
 1.[**Automatic Version Comparison through AppStore**](#1-automatic-version-comparison-through-appstore): SSAppUpdater automatically compares the app’s current version with the latest version available in the App Store, ensuring users are always informed when updates are available.
@@ -42,6 +47,7 @@ SSAppUpdater is an open-source framework designed to streamline the process of c
 ![](Assets/ManualMacAppUpdaterExample.gif)
 
 3.[**Customizable Update Alerts**:](#3-customisable-Update-Alerts) The framework offers flexible options to present update alerts to users, enabling developers to control when and how they notify users about new updates using customised UI.
+___
 
 ### Installation
 #### 1. CocoaPods
@@ -97,6 +103,7 @@ SSAppUpdater is an open-source framework designed to streamline the process of c
         github ""SimformSolutionsPvtLtd/SSAppUpdater""
     ```
 -   Run `carthage` to build and drag the `SSAppUpdater`(Sources/SSAppUpdater) into your Xcode project.
+___
 
 ### Detailed Overview of the Features
 #### 1. Automatic Version Comparison through AppStore
@@ -154,6 +161,7 @@ SSAppUpdater is an open-source framework designed to streamline the process of c
     - Use `SSAppUpdater.shared.performManualMacAppVersionCheck` to check for the latest update from the server. This function accepts the following parameters:
         - `url` - Provide the correct URL for the **version.xml** file, wherever it is hosted.
         - `isForceUpdate` - Boolean value checks that the user wants to force update or not.
+        - `skipVersionAllow` - This feature lets users activate the "skipVersion" functionality.
         - `completion` -  This will provide you with version information in the completion block.
     - The function will compare your current build version with the latest version available on the server.
     - If a newer version is found, an alert will be displayed.
@@ -184,6 +192,7 @@ SSAppUpdater is an open-source framework designed to streamline the process of c
         }
     ```
 
+___
 
 # Inspired 
 -  SSAppUpdater inspired from [Siren](https://github.com/ArtSabintsev/Siren)
