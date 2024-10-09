@@ -10,19 +10,12 @@ import Foundation
 
 // `Bundle` Extension for SSAppUpdator.
 internal extension Bundle {
-    
     struct Constants {
-        /// Constant for the `.bundle` file extension.
         static let bundleExtension = "bundle"
-        
-        /// Constant for `CFBundleShortVersionString`.
         static let shortVersionString = "CFBundleShortVersionString"
-        
-        /// Constant for `CFBundleIdentifier`.
         static let bundleIdentifier = "CFBundleIdentifier"
-        
-        /// Constant for `CFBundleDisplayName`.
         static let displayName = "CFBundleDisplayName"
+        static let bundleVersion = "CFBundleShortVersionString"
     }
  
     /// Fetches the current version of the app.
@@ -31,6 +24,10 @@ internal extension Bundle {
         return Bundle.main.object(forInfoDictionaryKey: Constants.shortVersionString) as? String
     }
    
+    static var appVersion: String? {
+        return Bundle.main.infoDictionary?[Constants.bundleVersion] as? String
+    }
+
     /// Fetches the bundle identifier of the app.
     /// - Returns: The bundle identifier of the app.
     class func bundleIdentifier() -> String? {

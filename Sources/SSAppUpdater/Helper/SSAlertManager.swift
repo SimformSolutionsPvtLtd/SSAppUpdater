@@ -95,7 +95,7 @@ extension SSAlertManager {
                 alert.addButton(withTitle: cancelButtonTitle)
             }
 
-            guard let mainWindow = NSApplication.shared.mainWindow else {
+            guard let mainWindow = NSApplication.shared.keyWindow else {
                 return
             }
             alert.beginSheetModal(for: mainWindow) { (response) in

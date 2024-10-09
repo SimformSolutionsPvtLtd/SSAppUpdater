@@ -13,24 +13,27 @@ import Combine
 internal class PerformVersionCheck: NSObject, SKStoreProductViewControllerDelegate {
 
     // MARK: - Variables
-    private var completion: (SSVersionInfo) -> Void?
+    var completion: (SSVersionInfo) -> Void?
     var networkManager = SSNetworkManager()
 
     // MARK: - Initialisers
-    init(completion: @escaping (SSVersionInfo) -> Void) {
+    init(isManualMacOSUpdate: Bool, completion: @escaping (SSVersionInfo) -> Void) {
         self.completion = completion
         super.init()
-        #if os(iOS)
-        print(UIApplication.willResignActiveNotification)
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(getVersionCheck),
-            name: UIApplication.willResignActiveNotification,
-            object: nil
-        )
-        #endif
-        DispatchQueue.main.async {
-            self.getVersionCheck()
+        if isManualMacOSUpdate {
+            processManualVersionCheck(from: SSAppUpdater.shared.serverURL)
+        } else {
+            #if os(iOS)
+            NotificationCenter.default.addObserver(
+                self,
+                selector: #selector(getVersionCheck),
+                name: UIApplication.willResignActiveNotification,
+                object: nil
+            )
+            #endif
+            DispatchQueue.main.async {
+                self.getVersionCheck()
+            }
         }
     }
 }
@@ -50,6 +53,10 @@ extension PerformVersionCheck {
 
         static let noInternetAlertTitle = "No internet"
         static let noInternetAlertSubTitle = "Please check your internet and  try again"
+
+        static let versionTag = "version"
+        static let latestBuildURLTag = "latestBuildURL"
+        static let applicationDir = "/Applications/"
     }
 }
 
@@ -186,7 +193,7 @@ extension PerformVersionCheck {
     /** 
         This function displays a force alert
      */
-    private func displayForceAlert(versionInfo: SSVersionInfo) {
+    func displayForceAlert(versionInfo: SSVersionInfo) {
         self.showAppUpdateAlert(versionInfo: versionInfo)
     }
 
@@ -227,6 +234,7 @@ extension PerformVersionCheck {
     }
     #endif
 }
+
 // MARK: - Launch product in appstore
 extension PerformVersionCheck {
     /**
