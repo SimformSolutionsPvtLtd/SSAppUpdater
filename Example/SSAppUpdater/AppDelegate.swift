@@ -43,9 +43,9 @@ extension AppDelegate {
 }
 #else
 @main
-struct SSAppUpdaterApp: App {
+struct SSAppUpdaterApp: App {  
     // MARK: - Variables
-        @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 }
 
 // MARK: - Body View

@@ -7,6 +7,7 @@
 
 import Foundation
 
+#if os(macOS)
 enum SSScriptOrCommandExecutor {
     /**
      Executes a command in the terminal and returns the output as a string.
@@ -25,3 +26,4 @@ enum SSScriptOrCommandExecutor {
         return String(data: fileHandle.readDataToEndOfFile(), encoding: .utf8)
     }
 }
+#endif

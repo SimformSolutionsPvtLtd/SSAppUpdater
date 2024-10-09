@@ -62,15 +62,42 @@ extension SSAPIManager {
         - completion: A closure to be called upon completion of the network request. It takes a single parameter:
             - content: A string containing the response data from the server, typically representing update information.
     */
-    func checkForManualUpdate(serverURL: String, completion: @escaping ((String) -> Void)) {
-        guard let url = URL(string: serverURL) else { return }
+    func checkForManualUpdate(
+        serverURL: String,
+        completion: @escaping (Swift.Result<String, CustomError>) -> Void
+    ) {
+        guard let url = URL(string: serverURL) else {
+            completion(.failure(CustomError.invalidURL))
+            return
+        }
+
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            guard error == nil else { return }
-            guard let httpResponse = response as? HTTPURLResponse else { return }
-            guard httpResponse.statusCode == 200 else { return }
-            guard let responseData = data else { return }
-            guard let content = String(data: responseData, encoding: .utf8) else { return }
-            completion(content)
+            if let error {
+                completion(.failure(.other(error)))
+                return
+            }
+
+            guard let httpResponse = response as? HTTPURLResponse else {
+                completion(.failure(CustomError.invalidResponse))
+                return
+            }
+
+            guard httpResponse.statusCode == 200 else {
+                completion(.failure(CustomError.serverError(statusCode: httpResponse.statusCode)))
+                return
+            }
+
+            guard let data else {
+                completion(.failure(CustomError.noData))
+                return
+            }
+
+            guard let content = String(data: data, encoding: .utf8) else {
+                completion(.failure(CustomError.dataEncodingError))
+                return
+            }
+
+            completion(.success(content))
         }
         task.resume()
     }
