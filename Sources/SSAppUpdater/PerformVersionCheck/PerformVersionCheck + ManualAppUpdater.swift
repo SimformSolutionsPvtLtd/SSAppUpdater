@@ -10,6 +10,12 @@ import Foundation
 #if os(macOS)
 // MARK: - Perform version check manual
 extension PerformVersionCheck {
+    /**
+     Performs a manual version check for app updates by querying a remote server for the latest version details. If a newer version is available, it optionally downloads the new build and displays an alert to the user with release notes.
+
+     - Parameters:
+        - serverURL: A `String` representing the URL of the server that provides version information in XML format.
+    */
     func processManualVersionCheck(from serverURL: String) {
         URLCache.shared.removeAllCachedResponses()
         SSAPIManager.shared.checkForManualUpdate(serverURL: serverURL) { result in
@@ -140,6 +146,13 @@ extension PerformVersionCheck {
         }
     }
 
+    /**
+     Downloads the latest app build from a given URL and saves it to the appropriate file location on the disk. Once the download is complete, the result is passed back via a completion handler.
+
+     - Parameters:
+        - urlString: A `String` representing the URL from which the updated build will be downloaded.
+        - completion: A closure that is called with a `Bool` indicating the success (`true`) or failure (`false`) of the download operation.
+*      */
     private func downloadUpdatedBuild(urlString: String, completion: @escaping (Bool) -> Void) {
         guard let url = URL(string: urlString) else {
             completion(false)
@@ -229,6 +242,14 @@ extension PerformVersionCheck {
 }
 
 extension PerformVersionCheck {
+    /**
+     Displays an alert to notify the user about a new app version update. The alert includes the version number, release notes, and options to update, skip the version, or cancel.
+
+     - Parameters:
+        - version: A `String` representing the new app version that is available for download.
+        - formattedReleaseNote: A `String` containing the formatted release notes for the new version, typically in a bulleted format.
+        - url: A `URL` pointing to the location of the latest app build that will be downloaded and installed if the user chooses to update.
+    */
     private func displayUpdateAlert(version: String, formattedReleaseNote: String, url: URL) {
         DispatchQueue.main.async {
             SSAlertManager.shared.showAlert(
