@@ -100,7 +100,7 @@ ___
 -   To integrate SSAppUpdater into your Xcode project using Carthage, add the following line to your Cartfile:
 
     ```ogdl
-        github ""SimformSolutionsPvtLtd/SSAppUpdater""
+        github "SimformSolutionsPvtLtd/SSAppUpdater"
     ```
 -   Run `carthage` to build and drag the `SSAppUpdater`(Sources/SSAppUpdater) into your Xcode project.
 ___
@@ -191,6 +191,11 @@ ___
             // Version Info have all the app update related information
         }
     ```
+
+---
+
+# Documentation
+- **[Documentation]():** Find the full API reference for more detailed documentation.
 
 ___
 
