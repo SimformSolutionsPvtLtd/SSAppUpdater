@@ -9,15 +9,23 @@
 import SwiftUI
 import SSAppUpdater
 
-// MARK: - Body view
+// MARK: - Constants
 struct ContentView: View {
+    struct Constants {
+        static let serverURL = ""
+    }
+}
+
+// MARK: - Body view
+extension ContentView {
     var body: some View {
         VStack {
             Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
                 .onAppear(perform: {
-                    SSAppUpdater.shared.performCheck(isForceUpdate: true) {  versionInfo in
-                        print(versionInfo)
-                    }
+                    checkForManualMacAppUpdate()
+
+                    /// Uncomment below function to display default alert
+                    /// checkForUpdateDisplayDefaultAlert()
 
                     /// Uncomment below function to display custom alert
                     /// checkForUpdateDisplayCustomAlert()
@@ -29,6 +37,15 @@ struct ContentView: View {
 
 // MARK: - Private view
 extension ContentView {
+    private func checkForManualMacAppUpdate() {
+        SSAppUpdater.shared.performManualMacAppVersionCheck(
+            url: ContentView.Constants.serverURL,
+            isForceUpdate: true
+        ) { versionInfo in
+            print(versionInfo)
+        }
+    }
+
     private func checkForUpdateDisplayCustomAlert() {
         SSAppUpdater.shared.performCheckAndDisplayCustomAlert { (versionInfo) in
             DispatchQueue.main.async {
@@ -41,6 +58,12 @@ extension ContentView {
                     )
                 }
             }
+        }
+    }
+
+    private func checkForUpdateDisplayDefaultAlert() {
+        SSAppUpdater.shared.performCheck { (versionInfo) in
+            print(versionInfo)
         }
     }
 }

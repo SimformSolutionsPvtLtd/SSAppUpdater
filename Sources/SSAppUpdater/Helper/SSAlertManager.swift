@@ -21,6 +21,25 @@ extension SSAlertManager {
 
 // MARK: - Show alert
 extension SSAlertManager {
+    /**
+     Displays an alert dialog with a title, subtitle, and up to three buttons for both iOS and macOS platforms.
+
+     - Parameters:
+        - alertIcon: A `String` representing the icon to display in the alert. On iOS, this parameter is currently unused. On macOS, the icon is displayed using `NSImage(systemSymbolName:accessibilityDescription:)`.
+        - title: A `String` representing the title of the alert.
+        - subTitle: A `String` representing the message or subtitle of the alert.
+        - primaryButtonTitle: A `String` representing the title of the primary action button (e.g., "OK", "Confirm").
+        - primaryButtonAction: An optional closure `(() -> Void)?` that is executed when the primary button is pressed. Defaults to `nil` if no action is needed.
+        - secondaryButtonTitle: An optional `String` representing the title of the secondary button. If `nil`, the secondary button is not shown.
+        - secondaryButtonAction: An optional closure `(() -> Void)?` that is executed when the secondary button is pressed. Defaults to `nil` if no action is needed.
+        - cancelButtonTitle: An optional `String` representing the title of the cancel button. If `nil`, the cancel button is not shown.
+        - cancelButtonAction: An optional closure `(() -> Void)?` that is executed when the cancel button is pressed. Defaults to `nil` if no action is needed.
+
+     The behavior of the alert depends on the platform:
+
+     - **iOS**: Uses `UIAlertController` to present the alert. Buttons are created based on the provided titles and actions.
+     - **macOS**: Uses `NSAlert` to present the alert. The `alertIcon` is displayed (if valid) and buttons are created for each action.
+    */
     func showAlert(
         alertIcon: String,
         title: String,
@@ -95,7 +114,7 @@ extension SSAlertManager {
                 alert.addButton(withTitle: cancelButtonTitle)
             }
 
-            guard let mainWindow = NSApplication.shared.mainWindow else {
+            guard let mainWindow = NSApplication.shared.keyWindow else {
                 return
             }
             alert.beginSheetModal(for: mainWindow) { (response) in
