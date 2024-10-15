@@ -191,12 +191,6 @@ ___
             // Version Info have all the app update related information
         }
     ```
-
----
-
-# Documentation
-- **[Documentation]():** Find the full API reference for more detailed documentation.
-
 ___
 
 # Inspired 
