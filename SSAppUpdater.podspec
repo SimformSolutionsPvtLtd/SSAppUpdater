@@ -8,8 +8,8 @@
 
  Pod::Spec.new do |s|
   s.name         = "SSAppUpdater"
-  s.version      = "1.5.0"
-  s.summary      = "SSAppUpdater is an open-source framework which notify the users about newly updated version on app store of the apps user already installed"
+  s.version      = "1.6.0"
+  s.summary      = "SSAppUpdater is an open-source framework designed to streamline the process of comparing the current version of an app with the version available in the app store for iOS and macOS. It provides key details such as the app's URL, the new version number, and release notes. With this information, you can notify users about the availability of the latest version and redirect them to update the app. "
 
 
   s.homepage     = 'https://github.com/SimformSolutionsPvtLtd/SSAppUpdater.git'
