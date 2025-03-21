@@ -169,14 +169,15 @@ extension PerformVersionCheck {
             - versionInfo: An `SSVersionInfo` object containing details about the available app update, including release notes, app ID, and app version.
     */
     private func showAppUpdateAlert(versionInfo: SSVersionInfo) {
-        guard let releaseNote = versionInfo.appReleaseNote,
-              let trackID = versionInfo.appID,
+        guard let trackID = versionInfo.appID,
               let appStoreVersion = versionInfo.appVersion else
         { return }
+        let note = versionInfo.appReleaseNote ?? ""
+        let releaseNote = note.isEmpty ? "available" : "\n\n \(note)"
         SSAlertManager.shared.showAlert(
             alertIcon: PerformVersionCheckConstants.updateSystemImage,
             title: Bundle.getAppName(),
-            subTitle: "\n A new version \(appStoreVersion) \n\n \(releaseNote)",
+            subTitle: "\n A new version \(appStoreVersion) \(releaseNote)",
             primaryButtonTitle: PerformVersionCheckConstants.update,
             primaryButtonAction: {
                 #if os(iOS)
