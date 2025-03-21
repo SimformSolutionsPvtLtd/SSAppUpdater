@@ -8,7 +8,7 @@
 
  Pod::Spec.new do |s|
   s.name         = "SSAppUpdater"
-  s.version      = "1.6.0"
+  s.version      = "1.7.0"
   s.summary      = "SAppUpdater is an open-source framework for iOS and macOS that checks the current app version against the latest App Store version, providing the app URL, version number, and release notes. On macOS, it also supports manual updates, allowing apps to offer version checks and updates outside the App Store."
 
 
