@@ -38,6 +38,12 @@ public class SSAppUpdater {
     /// A boolean flag indicating whether the app updater is in manual update mode.
     var isManualAppUpdater = false
 
+    /// Custom alert title provided by the user.
+    var customAlertTitle: String?
+
+    /// A closure that formats the alert subtitle using SSVersionInfo.
+    var customSubtitleFormatter: ((SSVersionInfo) -> String)?
+
     // MARK: - Initialisers
     private init() { }
 }
@@ -65,6 +71,8 @@ extension SSAppUpdater {
         self.updateAlertFrequency = updateAlertFrequency
         self.skipVersionAllow = skipVersionAllow
         self.redirectToAppStore = redirectToAppStore
+        self.customAlertTitle = nil
+        self.customSubtitleFormatter = nil
         self.versionCheck = PerformVersionCheck(isManualMacOSUpdate: false, completion: completion)
     }
 
@@ -78,6 +86,8 @@ extension SSAppUpdater {
     */
     public func performCheckAndDisplayCustomAlert(completion: @escaping (SSVersionInfo) -> Void) {
         self.showDefaultAlert = false
+        self.customAlertTitle = nil
+        self.customSubtitleFormatter = nil
         self.versionCheck = PerformVersionCheck(isManualMacOSUpdate: false, completion: completion)
         self.isManualAppUpdater = false
     }
@@ -101,10 +111,58 @@ extension SSAppUpdater {
         self.serverURL = url
         self.isForceUpdate = isForceUpdate
         self.skipVersionAllow = skipVersionAllow
+        self.customAlertTitle = nil
+        self.customSubtitleFormatter = nil
         self.versionCheck = PerformVersionCheck(
             isManualMacOSUpdate: true,
             completion: completion
         )
         self.isManualAppUpdater = true
+    }
+
+    /**
+    Performs a version check and displays an alert with custom title and subtitle.
+
+    This method initiates a version check and displays an alert with a custom title and a dynamically formatted subtitle. The subtitle formatter closure receives the version information, allowing you to create a custom message that includes version details.
+
+    - Parameters:
+        - title: A custom title string for the alert.
+        - subtitleFormatter: A closure that takes `SSVersionInfo` and returns a formatted subtitle string. This allows you to include version information in the subtitle (e.g., "New version \(versionInfo.appVersion ?? "") is available").
+        - isForceUpdate: A boolean value indicating whether the user wants to **forceUpdate** or **optionalUpdate**. Default is `false`.
+        - updateAlertFrequency: The frequency at which the user wants to perform the app update. Default is `.always`.
+        - skipVersionAllow: A boolean value indicating whether it will allow for **Skip Version** in the Alert Controller. Default is `false`.
+        - redirectToAppStore: A boolean value indicating whether the app should redirect to the App Store. Default is `false`.
+        - completion: A closure to return Version Information (App Version Info).
+
+    - Example:
+    ```swift
+    SSAppUpdater.shared.performCheckWithCustomAlertText(
+        title: "Update Available",
+        subtitleFormatter: { versionInfo in
+            "New version \(versionInfo.appVersion ?? "N/A") is available. Please update to get the latest features!"
+        }
+    ) { versionInfo in
+        print("Version check completed: \(versionInfo)")
+    }
+    ```
+    */
+    public func performCheckWithCustomAlertText(
+        title: String,
+        subtitleFormatter: @escaping (SSVersionInfo) -> String,
+        isForceUpdate: Bool = false,
+        updateAlertFrequency: SSUpdateFrequency = .always,
+        skipVersionAllow: Bool = false,
+        redirectToAppStore: Bool = false,
+        completion: @escaping (SSVersionInfo) -> Void
+    ) {
+        self.isForceUpdate = isForceUpdate
+        self.showDefaultAlert = true
+        self.updateAlertFrequency = updateAlertFrequency
+        self.skipVersionAllow = skipVersionAllow
+        self.redirectToAppStore = redirectToAppStore
+        self.customAlertTitle = title
+        self.customSubtitleFormatter = subtitleFormatter
+        
+        self.versionCheck = PerformVersionCheck(isManualMacOSUpdate: false, completion: completion)
     }
 }
