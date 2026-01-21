@@ -172,12 +172,29 @@ extension PerformVersionCheck {
         guard let trackID = versionInfo.appID,
               let appStoreVersion = versionInfo.appVersion else
         { return }
-        let note = versionInfo.appReleaseNote ?? ""
-        let releaseNote = note.isEmpty ? "available" : "\n\n \(note)"
+        
+        // Use custom title if provided, otherwise use default app name
+        let alertTitle: String
+        if let customTitle = SSAppUpdater.shared.customAlertTitle {
+            alertTitle = customTitle
+        } else {
+            alertTitle = Bundle.getAppName()
+        }
+        
+        // Use custom subtitle formatter if provided, otherwise use default subtitle
+        let alertSubTitle: String
+        if let subtitleFormatter = SSAppUpdater.shared.customSubtitleFormatter {
+            alertSubTitle = subtitleFormatter(versionInfo)
+        } else {
+            let note = versionInfo.appReleaseNote ?? ""
+            let releaseNote = note.isEmpty ? "available" : "\n\n \(note)"
+            alertSubTitle = "\n A new version \(appStoreVersion) \(releaseNote)"
+        }
+        
         SSAlertManager.shared.showAlert(
             alertIcon: PerformVersionCheckConstants.updateSystemImage,
-            title: Bundle.getAppName(),
-            subTitle: "\n A new version \(appStoreVersion) \(releaseNote)",
+            title: alertTitle,
+            subTitle: alertSubTitle,
             primaryButtonTitle: PerformVersionCheckConstants.update,
             primaryButtonAction: {
                 #if os(iOS)
